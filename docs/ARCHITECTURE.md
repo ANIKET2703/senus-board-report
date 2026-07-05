@@ -304,6 +304,7 @@ erDiagram
     validation_results {
         int id PK
         string check_name
+        string period_label
         string status "pass|warn|fail"
         string detail
     }

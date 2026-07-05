@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session, joinedload
 
-from app.models import FinancialFact, Period
+from app.models import FinancialFact
 
 
 def facts_by_period(db: Session) -> dict[str, dict[str, float]]:
