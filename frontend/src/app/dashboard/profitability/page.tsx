@@ -40,7 +40,7 @@ export default function Profitability() {
         <h1 className="text-2xl font-bold tracking-tight">Profitability</h1>
         <p className="subtle mt-1">Gross margin expanded 62.8% → 77.5% (FY) and 79.8% → 81.7% (HY) · EBITDA-positive guidance: FY2028</p>
       </header>
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {cardRows.flatMap(({ period, prior }) =>
           ["gross_margin", "ebitda", "ebitda_margin"].map((key) => {
             const m = pm(key, period);

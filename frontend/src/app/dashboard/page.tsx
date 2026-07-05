@@ -47,7 +47,7 @@ export default function Overview() {
         </p>
       </header>
 
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {find("growth", "revenue_growth", "FY25") &&
           <MetricCard metric={find("growth", "revenue_growth", "FY25")!}
             sub="HY26 grew 4.1% vs HY25" />}
@@ -114,7 +114,7 @@ export default function Overview() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <MetricCard metric={find("growth", "senus2030_progress")!} sub="LTM revenue vs level implied by 50% CAGR commitment" />
         <MetricCard metric={find("solvency", "net_debt", "HY26")!}
           prior={find("solvency", "net_debt", "FY25")} higherIsBetter={false}

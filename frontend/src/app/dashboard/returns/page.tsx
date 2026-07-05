@@ -19,7 +19,7 @@ export default function Returns() {
         <h1 className="text-2xl font-bold tracking-tight">Returns</h1>
         <p className="subtle mt-1">Capital efficiency during the investment phase - trend matters more than level pre-breakeven</p>
       </header>
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {roces.filter((m) => m.period === "FY25" || m.period === "HY26").map((m) => (
           <MetricCard key={m.period} metric={m}
             prior={m.period === "HY26" ? roces.find((p) => p.period === "FY25") : undefined} />

@@ -43,7 +43,7 @@ export default function Cash() {
         <h1 className="text-2xl font-bold tracking-tight">Cash & Liquidity</h1>
         <p className="subtle mt-1">HY26 closing cash €735k after €1.1m equity raise · pre-financing burn ≈ €70k/month</p>
       </header>
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((m) => <MetricCard key={m.key + m.period} metric={m} />)}
       </div>
       <InsightCard section="cash" />

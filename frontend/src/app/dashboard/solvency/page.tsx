@@ -31,7 +31,7 @@ export default function Solvency() {
         <h1 className="text-2xl font-bold tracking-tight">Solvency & Leverage</h1>
         <p className="subtle mt-1">Bank debt €76.5k vs cash €735k at Dec-25 (net cash) · €100k SBCI term loan drawn FY25 · contingent consideration €850k (performance-linked, Loamin)</p>
       </header>
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {cards.map((m) => <MetricCard key={m.key + m.period} metric={m} />)}
       </div>
       <InsightCard section="solvency" />

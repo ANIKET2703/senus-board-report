@@ -39,7 +39,7 @@ export default function Growth() {
         <h1 className="text-2xl font-bold tracking-tight">Growth & Revenue</h1>
         <p className="subtle mt-1">FY25 revenue €836,991 across 138 customer accounts · Senus 2030 targets ≥50% CAGR</p>
       </header>
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.growth.map((m: Metric) => <MetricCard key={m.key + m.period} metric={m} />)}
         <MetricCard metric={{ key: "bookings", label: "Bookings (deals closed)",
           value: k("deals_closed_value") ?? null, unit: "EUR", period: "HY26", caveat: null, inputs: {} }}

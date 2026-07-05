@@ -54,7 +54,7 @@ export default function ScenarioPage() {
 
       {data && (
         <>
-          <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <div className="panel p-4">
               <p className="subtle">FY30 revenue</p>
               <p className="mt-1 text-2xl font-semibold">{eur(data.projection[4].revenue)}</p>
