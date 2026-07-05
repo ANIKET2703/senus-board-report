@@ -52,6 +52,11 @@ def embed_documents() -> None:
             with pdfplumber.open(pdf_path) as pdf:
                 for page_no, page in enumerate(pdf.pages, 1):
                     text = page.extract_text() or ""
+                    # release the parsed page layout immediately: pdfplumber caches
+                    # every page it touches, which blows past small-instance RAM
+                    # (512MB) on the larger filings
+                    if hasattr(page, "flush_cache"):
+                        page.flush_cache()
                     if len(text.strip()) < 40:
                         continue
                     for chunk_text in _chunks_from_text(text):
@@ -60,5 +65,5 @@ def embed_documents() -> None:
                             emb = json.dumps(list(map(float, next(iter(embedder.embed([chunk_text]))))))
                         db.add(Chunk(document_id=doc.id, page_number=page_no,
                                      content=chunk_text, embedding_json=emb))
-        db.commit()
+            db.commit()  # commit per document to keep the session small
         print(f"stored {db.query(Chunk).count()} chunks")

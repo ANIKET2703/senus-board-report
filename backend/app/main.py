@@ -30,16 +30,24 @@ for router in (auth.router, metrics.router, statements.router, insights.router,
 @app.on_event("startup")
 def startup() -> None:
     Base.metadata.create_all(engine)
-    # auto-seed on first boot so the app is demo-ready out of the box
+    # auto-seed on first boot so the app is demo-ready out of the box (fast: ~seconds)
     from pipeline.load import seed_database
     seed_database()
+    # chunking the PDFs for retrieval is slow on small instances, so it runs in a
+    # background thread: the port opens immediately and chat retrieval comes online
+    # a few minutes later once chunks are stored
     import os
     if os.environ.get("SKIP_EMBED") != "1":
-        from pipeline.embed import embed_documents
-        try:
-            embed_documents()
-        except Exception as exc:  # chunking requires source PDFs; optional in prod image
-            print(f"embed skipped: {exc}")
+        import threading
+
+        def _embed() -> None:
+            from pipeline.embed import embed_documents
+            try:
+                embed_documents()
+            except Exception as exc:  # chunking requires source PDFs; optional in prod image
+                print(f"embed skipped: {exc}")
+
+        threading.Thread(target=_embed, daemon=True).start()
 
 
 @app.get("/health")

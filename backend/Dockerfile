@@ -16,4 +16,5 @@ COPY backend/pipeline ./pipeline
 COPY data ../data
 
 EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# bind to the platform-provided PORT when present (Render/Railway), else 8000
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
