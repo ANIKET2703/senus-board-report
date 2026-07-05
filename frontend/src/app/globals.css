@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Senus brand system — sampled from senus.com and the Senus PLC corporate
+   presentation (Mar 2026): deep forest green surfaces, brand teal #20948b
+   accents, Bitter (serif) headings + Figtree (sans) body. */
+:root {
+  --bg: #06251b;
+  --panel: #0a3325;
+  --panel-2: #0f4231;
+  --border: #1a4d3b;
+  --text: #edf5f1;
+  --muted: #93b3a7;
+  --accent: #20948b;        /* Senus brand teal: nav + primary actions only */
+  --pos: #4fbf8d;           /* financial positive */
+  --neg: #e26d7e;           /* financial negative */
+  --warn: #ddb04f;
+  --chart-1: #2fb3a6;       /* primary data series (brand teal) */
+  --chart-2: #8ed081;       /* secondary (leaf green) */
+  --chart-3: #93b3a7;       /* tertiary (sage) */
+}
+
+[data-theme="light"] {
+  --bg: #f3f6f4;
+  --panel: #ffffff;
+  --panel-2: #e9f0ec;
+  --border: #d7e2db;
+  --text: #12291f;
+  --muted: #5b7268;
+  --accent: #157a70;
+  --pos: #1e7a5a;
+  --neg: #b8394f;
+  --warn: #8f6408;
+  --chart-1: #157a70;
+  --chart-2: #55923f;
+  --chart-3: #7c948a;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "tnum" 1;   /* tabular numerals for financial data */
+  transition: background 0.15s ease;
+}
+
+/* Bitter serif for headings, echoing the Senus corporate deck */
+h1, .h-title { font-family: var(--font-bitter), Georgia, serif; }
+
+.panel { @apply rounded-lg border border-[var(--border)] bg-[var(--panel)]; }
+.panel-hover { @apply transition-colors hover:border-[var(--muted)]; }
+.h-title { @apply text-base font-semibold tracking-tight; }
+.subtle { @apply text-sm text-[var(--muted)]; }
+.num-neg { color: var(--neg); }
+.num-pos { color: var(--pos); }
+
+/* Export board pack: print the current page cleanly */
+@media print {
+  aside, .no-print { display: none !important; }
+  main { padding: 0 !important; max-width: none !important; }
+  body { background: #fff; color: #12291f; }
+  .panel { break-inside: avoid; border-color: #d7e2db; background: #fff; }
+}

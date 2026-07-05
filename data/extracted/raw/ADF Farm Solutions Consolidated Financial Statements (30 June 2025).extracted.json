@@ -1,0 +1,573 @@
+{
+  "document_filename": "ADF Farm Solutions Consolidated Financial Statements (30 June 2025).pdf",
+  "line_items": [
+    {
+      "line_code": "revenue",
+      "label": "Turnover",
+      "value": 838991.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "revenue",
+      "label": "Turnover",
+      "value": 688317.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": -188541.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": -255840.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross profit",
+      "value": 648450.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross profit",
+      "value": 432477.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "distribution_costs",
+      "label": "Distribution costs",
+      "value": -1084.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "distribution_costs",
+      "label": "Distribution costs",
+      "value": -2353.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "admin_expenses",
+      "label": "Administrative expenses",
+      "value": -1286058.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "admin_expenses",
+      "label": "Administrative expenses",
+      "value": -1560853.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "other_operating_income",
+      "label": "Other operating income",
+      "value": 4998.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -633694.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -1130729.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "other_gains_losses",
+      "label": "Other gains and losses",
+      "value": 0.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "other_gains_losses",
+      "label": "Other gains and losses",
+      "value": 319.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "interest_expense",
+      "label": "Interest payable and similar expenses",
+      "value": -2074.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "interest_expense",
+      "label": "Interest payable and similar expenses",
+      "value": -48.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "profit_before_tax",
+      "label": "Loss before taxation",
+      "value": -635768.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "profit_before_tax",
+      "label": "Loss before taxation",
+      "value": -1130458.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "tax",
+      "label": "Tax on loss",
+      "value": 45512.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "tax",
+      "label": "Tax on loss",
+      "value": 32363.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "net_income",
+      "label": "Loss for the financial year",
+      "value": -590256.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "net_income",
+      "label": "Loss for the financial year",
+      "value": -1098095.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "comprehensive_income",
+      "label": "Total comprehensive income",
+      "value": -590256.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "comprehensive_income",
+      "label": "Total comprehensive income",
+      "value": -1098095.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "tangible_fixed_assets",
+      "label": "Tangible assets",
+      "value": 48788.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "tangible_fixed_assets",
+      "label": "Tangible assets",
+      "value": 65390.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "debtors",
+      "label": "Debtors",
+      "value": 123003.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "debtors",
+      "label": "Debtors",
+      "value": 174730.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cash",
+      "label": "Cash and cash equivalents",
+      "value": 140135.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cash",
+      "label": "Cash and cash equivalents",
+      "value": 424639.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "current_assets",
+      "label": "Current Assets",
+      "value": 263138.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "current_assets",
+      "label": "Current Assets",
+      "value": 599369.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "creditors_lt_1yr",
+      "label": "Creditors: amounts falling due within one year",
+      "value": -243846.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "creditors_lt_1yr",
+      "label": "Creditors: amounts falling due within one year",
+      "value": -90078.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "net_current_assets",
+      "label": "Net Current Assets",
+      "value": 19292.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "net_current_assets",
+      "label": "Net Current Assets",
+      "value": 509291.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "total_assets_less_current_liabilities",
+      "label": "Total Assets less Current Liabilities",
+      "value": 68080.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "total_assets_less_current_liabilities",
+      "label": "Total Assets less Current Liabilities",
+      "value": 574681.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "creditors_gt_1yr",
+      "label": "Creditors: amounts falling due after more than one year",
+      "value": -83655.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "creditors_gt_1yr",
+      "label": "Creditors: amounts falling due after more than one year",
+      "value": 0.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "net_assets",
+      "label": "Net (Liabilities)/Assets",
+      "value": -15575.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "net_assets",
+      "label": "Net (Liabilities)/Assets",
+      "value": 574681.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "share_capital",
+      "label": "Called up share capital presented as equity",
+      "value": 144.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "share_capital",
+      "label": "Called up share capital presented as equity",
+      "value": 144.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "share_premium",
+      "label": "Share premium account",
+      "value": 849962.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "share_premium",
+      "label": "Share premium account",
+      "value": 849962.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "retained_earnings",
+      "label": "Retained earnings",
+      "value": -865681.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "retained_earnings",
+      "label": "Retained earnings",
+      "value": -275425.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "total_equity",
+      "label": "Equity attributable to owners of the company",
+      "value": -15575.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "total_equity",
+      "label": "Equity attributable to owners of the company",
+      "value": 574681.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cf_operating",
+      "label": "Net cash used in operating activities",
+      "value": -374820.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cf_operating",
+      "label": "Net cash used in operating activities",
+      "value": -1166697.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cf_investing",
+      "label": "Net cash used in investment activities",
+      "value": -3451.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cf_investing",
+      "label": "Net cash used in investment activities",
+      "value": -33472.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cf_financing",
+      "label": "Net cash generated from/(used in) financing activities",
+      "value": 93767.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cf_financing",
+      "label": "Net cash generated from/(used in) financing activities",
+      "value": -3846.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "change_in_cash",
+      "label": "Net decrease in cash and cash equivalents",
+      "value": -284504.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "change_in_cash",
+      "label": "Net decrease in cash and cash equivalents",
+      "value": -1204015.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "opening_cash",
+      "label": "Cash and cash equivalents at beginning of financial year",
+      "value": 424639.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "opening_cash",
+      "label": "Cash and cash equivalents at beginning of financial year",
+      "value": 1628654.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "closing_cash",
+      "label": "Cash and cash equivalents at end of financial year",
+      "value": 140135.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "closing_cash",
+      "label": "Cash and cash equivalents at end of financial year",
+      "value": 424639.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 15,
+      "confidence": 0.95
+    }
+  ],
+  "notes": "FY25 refers to year ended 30 June 2025; FY24 refers to year ended 30 June 2024. All values extracted exactly as printed in the financial statements. Negative values indicated by parentheses have been recorded as negative numbers."
+}

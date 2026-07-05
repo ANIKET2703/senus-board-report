@@ -1,0 +1,51 @@
+{
+  "document_filename": "Senus PLC Direct Listing Launch Press Release.pdf",
+  "line_items": [
+    {
+      "line_code": "revenue",
+      "label": "revenue",
+      "value": 836991.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 1,
+      "confidence": 0.98
+    },
+    {
+      "line_code": "kpi",
+      "label": "customer accounts",
+      "value": 138.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.98
+    },
+    {
+      "line_code": "kpi",
+      "label": "Issued Share Capital",
+      "value": 2561332.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.98
+    },
+    {
+      "line_code": "kpi",
+      "label": "Share Admission Price",
+      "value": 5.126,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.98
+    },
+    {
+      "line_code": "kpi",
+      "label": "Market Capitalisation at Admission",
+      "value": 13130000.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.98
+    }
+  ],
+  "notes": "This is a press release announcing a direct listing, not formal financial statements. The only P&L item extracted is revenue of €836,991 for the year ended 30 June 2025 (FY25). The document mentions gross proceeds of €1.1 million from a Private Placement, but this is a financing activity, not a financial statement line item. Additional KPIs related to the listing (share count, admission price, market cap, and customer accounts) have been recorded. No balance sheet, cash flow statement, or detailed P&L items are present in this document."
+}

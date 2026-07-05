@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push: { branches: [main] }
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install dependencies
+        run: |
+          pip install fastapi "uvicorn[standard]" sqlalchemy pydantic pydantic-settings \
+            anthropic pdfplumber "python-jose[cryptography]" bcrypt \
+            python-multipart rank-bm25 pytest httpx ruff
+      - name: Lint
+        run: cd backend && ruff check .
+      - name: Validate extracted facts (accounting identities)
+        run: cd backend && python -m pipeline.run --validate
+      - name: Tests
+        run: cd backend && python -m pytest tests/ -v
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install
+        run: cd frontend && npm ci
+      - name: Lint
+        run: cd frontend && npx eslint src --ext .ts,.tsx
+      - name: Type-check
+        run: cd frontend && npx tsc --noEmit
+      - name: Build
+        run: cd frontend && npm run build

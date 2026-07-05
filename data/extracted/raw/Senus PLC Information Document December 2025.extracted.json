@@ -1,0 +1,240 @@
+{
+  "document_filename": "Senus PLC Information Document December 2025.pdf",
+  "line_items": [
+    {
+      "line_code": "revenue",
+      "label": "Turnover",
+      "value": 836991.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "revenue",
+      "label": "Turnover",
+      "value": 688317.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 648450.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 432477.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Operating Profit / (Loss)",
+      "value": -633694.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Operating Profit / (Loss)",
+      "value": -1130729.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_before_tax",
+      "label": "Profit / (Loss) Before Tax",
+      "value": -635768.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_before_tax",
+      "label": "Profit / (Loss) Before Tax",
+      "value": -1130458.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "Profit / (Loss) After Tax",
+      "value": -590256.0,
+      "period_label": "FY25",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "Profit / (Loss) After Tax",
+      "value": -1098095.0,
+      "period_label": "FY24",
+      "statement": "pnl",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_assets",
+      "label": "Net (Liabilities) / Assets",
+      "value": -15575.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_assets",
+      "label": "Net (Liabilities) / Assets",
+      "value": 574681.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "retained_earnings",
+      "label": "Retained Earnings",
+      "value": -865681.0,
+      "period_label": "FY25",
+      "statement": "bs",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "retained_earnings",
+      "label": "Retained Earnings",
+      "value": -275425.0,
+      "period_label": "FY24",
+      "statement": "bs",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_operating",
+      "label": "Cash flows from Operating Activities",
+      "value": -374820.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_operating",
+      "label": "Cash flows from Operating Activities",
+      "value": -1166697.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_investing",
+      "label": "Cash flows from Investing Activities",
+      "value": -3451.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_investing",
+      "label": "Cash flows from Investing Activities",
+      "value": -33472.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_financing",
+      "label": "Cash flows from Financing Activities",
+      "value": 93767.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_financing",
+      "label": "Cash flows from Financing Activities",
+      "value": -3846.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cash_change",
+      "label": "Net increase (decrease) in cash and cash equivalents",
+      "value": -284504.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cash_change",
+      "label": "Net increase (decrease) in cash and cash equivalents",
+      "value": -1204015.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "opening_cash",
+      "label": "Cash and cash equivalents at beginning of financial year",
+      "value": 424639.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "opening_cash",
+      "label": "Cash and cash equivalents at beginning of financial year",
+      "value": 1628654.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "closing_cash",
+      "label": "Cash and cash equivalents at end of financial year",
+      "value": 140135.0,
+      "period_label": "FY25",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "closing_cash",
+      "label": "Cash and cash equivalents at end of financial year",
+      "value": 424639.0,
+      "period_label": "FY24",
+      "statement": "cf",
+      "page_number": 26,
+      "confidence": 1.0
+    }
+  ],
+  "notes": "Financial data extracted from the Summary Financial Information table on page 26. All values presented as printed. Losses and negative values have been recorded as negative numbers. The table presents comparative data for FY25 (year ended 30 June 2025) and FY24 (year ended 30 June 2024) for ADF Farm Solutions Limited (now Senus PLC). Note that the document states the company was renamed and reregistered as Senus PLC effective 17 December 2025."
+}

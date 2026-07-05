@@ -1,0 +1,1005 @@
+{
+  "document_filename": "Senus_HalfYearResultsDec2025_PR_V19032026 FINAL clean.pdf",
+  "line_items": [
+    {
+      "line_code": "revenue",
+      "label": "Turnover",
+      "value": 354813.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "revenue",
+      "label": "Turnover",
+      "value": 340931.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 64861.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 69600.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 289952.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 272331.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "distribution_costs",
+      "label": "Distribution costs",
+      "value": 0.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "distribution_costs",
+      "label": "Distribution costs",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "admin_expenses",
+      "label": "Administrative expenses",
+      "value": 781975.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "admin_expenses",
+      "label": "Administrative expenses",
+      "value": 677908.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "other_operating_income",
+      "label": "Other operating income",
+      "value": 8269.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "other_operating_income",
+      "label": "Other operating income",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -483753.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -405577.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "other_gains_losses",
+      "label": "Other gains and losses",
+      "value": 0.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "other_gains_losses",
+      "label": "Other gains and losses",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "interest_payable",
+      "label": "Interest payable and similar expenses",
+      "value": 1391.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "interest_payable",
+      "label": "Interest payable and similar expenses",
+      "value": 1036.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_before_tax",
+      "label": "Loss before taxation",
+      "value": -485144.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_before_tax",
+      "label": "Loss before taxation",
+      "value": -406613.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "tax_expense",
+      "label": "Tax expense",
+      "value": 0.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "tax_expense",
+      "label": "Tax expense",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "Loss for the period",
+      "value": -485144.0,
+      "period_label": "HY26",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "Loss for the period",
+      "value": -406613.0,
+      "period_label": "HY25",
+      "statement": "pnl",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "goodwill",
+      "label": "Goodwill",
+      "value": 669550.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "goodwill",
+      "label": "Goodwill",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "development_costs",
+      "label": "Development Costs",
+      "value": 239765.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "development_costs",
+      "label": "Development Costs",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "tangible_assets",
+      "label": "Tangible Assets",
+      "value": 42006.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "tangible_assets",
+      "label": "Tangible Assets",
+      "value": 65363.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "fixed_assets",
+      "label": "Fixed Assets",
+      "value": 951321.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "fixed_assets",
+      "label": "Fixed Assets",
+      "value": 65363.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "debtors",
+      "label": "Debtors",
+      "value": 188149.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "debtors",
+      "label": "Debtors",
+      "value": 211150.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cash",
+      "label": "Cash and cash equivalents",
+      "value": 735189.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cash",
+      "label": "Cash and cash equivalents",
+      "value": 72382.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "current_assets",
+      "label": "Current Assets",
+      "value": 923339.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "current_assets",
+      "label": "Current Assets",
+      "value": 283533.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "creditors_lt_1yr",
+      "label": "Creditors: amounts falling due within one year",
+      "value": -387105.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "creditors_lt_1yr",
+      "label": "Creditors: amounts falling due within one year",
+      "value": -90111.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 5,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "contingent_consideration",
+      "label": "Contingent consideration",
+      "value": -850000.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_current_assets",
+      "label": "Net Current Assets",
+      "value": -313766.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_current_assets",
+      "label": "Net Current Assets",
+      "value": 193421.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "total_assets_less_current_liabilities",
+      "label": "Total Assets Less Current Liabilities",
+      "value": 637554.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "total_assets_less_current_liabilities",
+      "label": "Total Assets Less Current Liabilities",
+      "value": 258784.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "creditors_gt_1yr",
+      "label": "Creditors: amounts falling due after more than one year",
+      "value": -76474.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "creditors_gt_1yr",
+      "label": "Creditors: amounts falling due after more than one year",
+      "value": -85468.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_assets",
+      "label": "Net (liabilities) / Assets",
+      "value": 561081.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_assets",
+      "label": "Net (liabilities) / Assets",
+      "value": 173316.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "share_capital",
+      "label": "Called up share capital presented as equity",
+      "value": 25000.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "share_capital",
+      "label": "Called up share capital presented as equity",
+      "value": 144.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "share_premium",
+      "label": "Share Premium",
+      "value": 300000.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "share_premium",
+      "label": "Share Premium",
+      "value": 849963.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "retained_earnings",
+      "label": "Retained Earnings",
+      "value": 236081.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "retained_earnings",
+      "label": "Retained Earnings",
+      "value": -676790.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "total_equity",
+      "label": "Equity attributable to owners of the company",
+      "value": 561081.0,
+      "period_label": "HY26",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "total_equity",
+      "label": "Equity attributable to owners of the company",
+      "value": 173316.0,
+      "period_label": "HY25",
+      "statement": "bs",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "Loss for the 6 month period",
+      "value": -485144.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "Loss for the 6 month period",
+      "value": -406613.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "interest_expense_addback",
+      "label": "Interest payable and similar expenses",
+      "value": 1391.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "interest_expense_addback",
+      "label": "Interest payable and similar expenses",
+      "value": 1036.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "depreciation",
+      "label": "Depreciation",
+      "value": 10014.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "depreciation",
+      "label": "Depreciation",
+      "value": 10016.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "operating_cashflow_before_wc",
+      "label": "Adjustments for",
+      "value": -473739.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "operating_cashflow_before_wc",
+      "label": "Adjustments for",
+      "value": -395561.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "wc_movement",
+      "label": "Movements in working capital",
+      "value": 64839.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "wc_movement",
+      "label": "Movements in working capital",
+      "value": -53584.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cash_from_operations",
+      "label": "Cash used in operations",
+      "value": -408900.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cash_from_operations",
+      "label": "Cash used in operations",
+      "value": -449145.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "interest_paid",
+      "label": "Interest Paid",
+      "value": -1391.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "interest_paid",
+      "label": "Interest Paid",
+      "value": -1036.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_operating",
+      "label": "Net Cash used in operating activities",
+      "value": -410291.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_operating",
+      "label": "Net Cash used in operating activities",
+      "value": -450181.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 6,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "capex",
+      "label": "Payments to acquire (in)tangible assets",
+      "value": -8500.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "capex",
+      "label": "Payments to acquire (in)tangible assets",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "asset_sales",
+      "label": "Receipts from sales of tangible assets",
+      "value": 0.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "asset_sales",
+      "label": "Receipts from sales of tangible assets",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_investing",
+      "label": "Net Cash used in investment activities",
+      "value": -8500.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_investing",
+      "label": "Net Cash used in investment activities",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "loan_repayment",
+      "label": "Receipt / (Repayment) of loans",
+      "value": -124837.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "loan_receipt",
+      "label": "Receipt / (Repayment) of loans",
+      "value": 97924.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "share_issuance",
+      "label": "Issue of new shares",
+      "value": 1138683.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "share_issuance",
+      "label": "Issue of new shares",
+      "value": 0.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_financing",
+      "label": "Net Cash inflow from financing activities",
+      "value": 1013846.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "cf_financing",
+      "label": "Net Cash inflow from financing activities",
+      "value": 97924.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_change_cash",
+      "label": "Net (decrease) / increase in cash and cash equivalents",
+      "value": 595055.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "net_change_cash",
+      "label": "Net (decrease) / increase in cash and cash equivalents",
+      "value": -352257.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "opening_cash",
+      "label": "Cash and cash equivalent at beginning of period",
+      "value": 140135.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "opening_cash",
+      "label": "Cash and cash equivalent at beginning of period",
+      "value": 424639.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "closing_cash",
+      "label": "Cash and cash equivalent at end of period",
+      "value": 735189.0,
+      "period_label": "HY26",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "closing_cash",
+      "label": "Cash and cash equivalent at end of period",
+      "value": 72382.0,
+      "period_label": "HY25",
+      "statement": "cf",
+      "page_number": 7,
+      "confidence": 1.0
+    },
+    {
+      "line_code": "revenue",
+      "label": "Group Revenue",
+      "value": 354800.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "revenue",
+      "label": "Group Revenue",
+      "value": 340900.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 289900.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 272000.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -483800.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -405600.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "loss after tax",
+      "value": -485100.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "loss after tax",
+      "value": -406600.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cash",
+      "label": "Cash",
+      "value": 735100.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "bank_debt",
+      "label": "bank debt balances",
+      "value": 76500.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 1,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "revenue",
+      "label": "Group Revenue",
+      "value": 354800.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "revenue",
+      "label": "Group Revenue",
+      "value": 340900.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 289900.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "gross_profit",
+      "label": "Gross Profit",
+      "value": 272000.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -483800.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "operating_profit",
+      "label": "Group operating loss",
+      "value": -405600.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "loss after tax",
+      "value": -485100.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "profit_after_tax",
+      "label": "loss after tax",
+      "value": -406600.0,
+      "period_label": "HY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "cash",
+      "label": "Cash",
+      "value": 735100.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "bank_debt",
+      "label": "bank debt balances",
+      "value": 76500.0,
+      "period_label": "HY26",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    }
+  ],
+  "notes": "The document contains rounded figures in the highlights sections (pages 1 and 3) which differ slightly from the exact figures in the formal financial statements (pages 5-7). I have extracted both sets but flagged the rounded figures with lower confidence (0.95). For example, Revenue is stated as €354.8k in highlights but €354,813 in the P&L. The bank debt of €76.5k mentioned on page 1 appears to correspond to \"Creditors: amounts falling due after more than one year\" of €76,474 on the balance sheet. Contingent consideration of €850,000 appears only for HY26 period on page 6, with no comparative figure for HY25 shown."
+}

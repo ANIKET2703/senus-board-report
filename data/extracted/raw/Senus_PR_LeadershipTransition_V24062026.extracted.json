@@ -1,0 +1,15 @@
+{
+  "document_filename": "Senus_PR_LeadershipTransition_V24062026.pdf",
+  "line_items": [
+    {
+      "line_code": "revenue",
+      "label": "revenue",
+      "value": 836991.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 3,
+      "confidence": 0.95
+    }
+  ],
+  "notes": "Document is primarily a leadership transition announcement. Only one financial metric disclosed: revenue of €836,991 for year ended 30 June 2025, stated alongside non-financial KPI of 138 customer accounts. No formal financial statements presented."
+}

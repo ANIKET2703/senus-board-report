@@ -1,0 +1,87 @@
+{
+  "document_filename": "Senus short corporate presentation 19032026.pdf",
+  "line_items": [
+    {
+      "line_code": "cash",
+      "label": "€800,000 fundraise",
+      "value": 800000.0,
+      "period_label": "FY24",
+      "statement": "kpi",
+      "page_number": 6,
+      "confidence": 0.85
+    },
+    {
+      "line_code": "cash",
+      "label": "€1.1m private placement",
+      "value": 1100000.0,
+      "period_label": "FY24",
+      "statement": "kpi",
+      "page_number": 6,
+      "confidence": 0.85
+    },
+    {
+      "line_code": "kpi",
+      "label": "Annual Contract Value Soil",
+      "value": 12309.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "kpi",
+      "label": "Annual Contract Value ERA",
+      "value": 58900.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "kpi",
+      "label": "Enterprise base accounts",
+      "value": 36.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "kpi",
+      "label": "International sales percentage",
+      "value": 22.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 10,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "kpi",
+      "label": "Revenue from Ireland percentage",
+      "value": 78.0,
+      "period_label": "FY25",
+      "statement": "kpi",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "kpi",
+      "label": "Enterprise base customers target",
+      "value": 100.0,
+      "period_label": "FY30",
+      "statement": "kpi",
+      "page_number": 11,
+      "confidence": 0.95
+    },
+    {
+      "line_code": "kpi",
+      "label": "Annual Contract Value with Enterprise Customers target",
+      "value": 50000.0,
+      "period_label": "FY30",
+      "statement": "kpi",
+      "page_number": 11,
+      "confidence": 0.95
+    }
+  ],
+  "notes": "This is a corporate presentation with limited financial statement data. Most values extracted are KPIs and fundraising amounts rather than traditional P&L, balance sheet, or cash flow items. The €800,000 fundraise and €1.1m private placement are dated 2024 on the timeline (page 6), mapped to FY24. The ACV figures and other metrics are explicitly labeled as FY2025 or FY2030 targets in the document. The international sales percentage (22%) and Ireland revenue percentage (78%) appear to be complementary metrics both for FY2025. Confidence slightly reduced for fundraise amounts as they lack precise period attribution in standard financial statement format."
+}

@@ -1,0 +1,195 @@
+<svg viewBox="0 0 1440 710" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="ag" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#476b5e"/>
+    </marker>
+    <marker id="at" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#20948b"/>
+    </marker>
+  </defs>
+
+  <rect x="4" y="4" width="1432" height="702" rx="18" fill="#f6f8f7" stroke="#dfe8e2" stroke-width="2"/>
+
+  <text x="44" y="56" font-size="26" font-weight="700" fill="#0a3d2c">Senus PLC Board Report</text>
+  <text x="44" y="82" font-size="14" fill="#5b7268">High-level design · every number traceable to a source page</text>
+
+  <!-- Claude cloud: vision (offline) -->
+  <g>
+    <ellipse cx="980" cy="78" rx="88" ry="30" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="936" cy="60" r="22" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="988" cy="50" r="26" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="1034" cy="64" r="18" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <ellipse cx="980" cy="78" rx="86" ry="28" fill="#e5f2f0"/>
+    <circle cx="936" cy="60" r="20" fill="#e5f2f0"/>
+    <circle cx="988" cy="50" r="24" fill="#e5f2f0"/>
+    <text x="980" y="72" font-size="14" font-weight="700" fill="#0f6e56" text-anchor="middle">Claude</text>
+    <text x="980" y="90" font-size="11.5" fill="#0f6e56" text-anchor="middle">vision extraction</text>
+  </g>
+
+  <!-- Claude cloud: commentary + chat (runtime) -->
+  <g>
+    <ellipse cx="1270" cy="78" rx="88" ry="30" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="1226" cy="60" r="22" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="1278" cy="50" r="26" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="1324" cy="64" r="18" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <ellipse cx="1270" cy="78" rx="86" ry="28" fill="#e5f2f0"/>
+    <circle cx="1226" cy="60" r="20" fill="#e5f2f0"/>
+    <circle cx="1278" cy="50" r="24" fill="#e5f2f0"/>
+    <text x="1270" y="72" font-size="14" font-weight="700" fill="#0f6e56" text-anchor="middle">Claude</text>
+    <text x="1270" y="90" font-size="11.5" fill="#0f6e56" text-anchor="middle">commentary + chat</text>
+  </g>
+
+  <!-- ================= OFFLINE INGESTION BAND ================= -->
+  <rect x="40" y="120" width="1140" height="210" rx="14" fill="#eaf3ed" stroke="#cfe3d6" stroke-width="1.5"/>
+  <text x="60" y="318" font-size="11.5" fill="#3f6b57" letter-spacing="2" font-weight="600">OFFLINE INGESTION · RUNS WHEN FILINGS ARE PUBLISHED (MAKE INGEST)</text>
+
+  <!-- Source PDFs -->
+  <g>
+    <rect x="70" y="160" width="230" height="140" rx="10" fill="#ffffff" stroke="#94b3a5" stroke-width="2"/>
+    <g stroke="#476b5e" stroke-width="2" fill="#f6f8f7">
+      <rect x="96" y="182" width="30" height="38" rx="3"/>
+      <rect x="90" y="176" width="30" height="38" rx="3"/>
+      <path d="M112 176 L112 186 L120 186" fill="none"/>
+    </g>
+    <text x="140" y="196" font-size="15" font-weight="700" fill="#12291f">7 source filings</text>
+    <text x="86" y="244" font-size="12" fill="#5b7268">Published investor documents:</text>
+    <text x="86" y="262" font-size="12" fill="#5b7268">accounts, info doc, results PRs</text>
+    <rect x="86" y="272" width="176" height="20" rx="10" fill="#f3ead7" stroke="#b8a26e"/>
+    <text x="174" y="286" font-size="11" fill="#6b5a2a" text-anchor="middle">2 are scans · no text layer</text>
+  </g>
+
+  <path d="M302 230 H336" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <!-- Extraction -->
+  <g>
+    <rect x="340" y="160" width="250" height="140" rx="10" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <path d="M372 180 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5 Z" fill="#20948b"/>
+    <text x="400" y="196" font-size="15" font-weight="700" fill="#0f4a42">AI extraction</text>
+    <text x="358" y="226" font-size="12" fill="#3c6b64">Text pages via pdfplumber,</text>
+    <text x="358" y="244" font-size="12" fill="#3c6b64">scanned pages via Claude vision</text>
+    <text x="358" y="262" font-size="12" fill="#3c6b64">Forced Pydantic tool schema</text>
+    <text x="358" y="280" font-size="12" fill="#3c6b64">Confidence score per value</text>
+  </g>
+
+  <path d="M592 230 H626" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <!-- Two-pass verify -->
+  <g>
+    <rect x="630" y="160" width="250" height="140" rx="10" fill="#e5f2f0" stroke="#20948b" stroke-width="2"/>
+    <circle cx="666" cy="192" r="11" fill="none" stroke="#20948b" stroke-width="2.5"/>
+    <path d="M674 200 L684 210" stroke="#20948b" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="696" y="196" font-size="15" font-weight="700" fill="#0f4a42">Two-pass verify</text>
+    <text x="648" y="226" font-size="12" fill="#3c6b64">Values below 0.9 confidence are</text>
+    <text x="648" y="244" font-size="12" fill="#3c6b64">re-read from their own page only,</text>
+    <text x="648" y="262" font-size="12" fill="#3c6b64">first value withheld (no anchoring)</text>
+    <text x="648" y="280" font-size="12" fill="#3c6b64">Disagreement goes to review queue</text>
+  </g>
+
+  <path d="M882 230 H916" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <!-- Deterministic validation -->
+  <g>
+    <rect x="920" y="160" width="250" height="140" rx="10" fill="#e7f1ea" stroke="#2f7d5a" stroke-width="2"/>
+    <path d="M952 178 l14 5 v12 c0 10 -6 16 -14 20 c-8 -4 -14 -10 -14 -20 v-12 Z" fill="none" stroke="#2f7d5a" stroke-width="2.5"/>
+    <path d="M945 196 l5 5 9 -10" fill="none" stroke="#2f7d5a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="978" y="196" font-size="15" font-weight="700" fill="#174e36">Validation</text>
+    <text x="938" y="226" font-size="12" fill="#3f6b57">21 accounting identity checks</text>
+    <text x="938" y="244" font-size="12" fill="#3f6b57">Cross-document comparison</text>
+    <text x="938" y="262" font-size="12" fill="#3f6b57">Findings surfaced, never fixed:</text>
+    <text x="938" y="280" font-size="12" fill="#3f6b57">2 real errors found in the filings</text>
+  </g>
+
+  <!-- dashed: vision cloud to extract + verify -->
+  <path d="M980 108 V142 H465 V154" fill="none" stroke="#20948b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#at)"/>
+  <path d="M755 142 V154" fill="none" stroke="#20948b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#at)"/>
+
+  <!-- facts.json elbow into DB -->
+  <path d="M1045 302 V338 H205 V394" fill="none" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+  <rect x="470" y="326" width="330" height="24" rx="12" fill="#ffffff" stroke="#cfe3d6"/>
+  <text x="635" y="342" font-size="11.5" fill="#3f6b57" text-anchor="middle">human-reviewed facts.json · committed, diffable, seeds the DB</text>
+
+  <!-- dashed: runtime cloud to API -->
+  <path d="M1270 108 V356 H485 V394" fill="none" stroke="#20948b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#at)"/>
+  <text x="1288" y="240" font-size="11.5" fill="#0f6e56">request-time AI is</text>
+  <text x="1288" y="256" font-size="11.5" fill="#0f6e56">words only, never</text>
+  <text x="1288" y="272" font-size="11.5" fill="#0f6e56">numbers</text>
+
+  <!-- ================= RUNTIME BAND ================= -->
+  <rect x="40" y="368" width="1140" height="240" rx="14" fill="#fbfcfb" stroke="#dfe8e2" stroke-width="1.5"/>
+  <text x="60" y="596" font-size="11.5" fill="#5b7268" letter-spacing="2" font-weight="600">RUNTIME · WHAT A LOGGED-IN BOARD MEMBER TOUCHES</text>
+
+  <!-- Database -->
+  <g>
+    <rect x="70" y="400" width="230" height="160" rx="10" fill="#f5efe0" stroke="#b8a26e" stroke-width="2"/>
+    <ellipse cx="104" cy="424" rx="14" ry="6" fill="none" stroke="#8a7742" stroke-width="2.5"/>
+    <path d="M90 424 v18 c0 3.5 6.3 6 14 6 s14 -2.5 14 -6 v-18" fill="none" stroke="#8a7742" stroke-width="2.5"/>
+    <text x="130" y="430" font-size="15" font-weight="700" fill="#5d4d1e">PostgreSQL</text>
+    <text x="88" y="462" font-size="12" fill="#6b5a2a">financial_facts with document,</text>
+    <text x="88" y="480" font-size="12" fill="#6b5a2a">page, method, confidence</text>
+    <text x="88" y="498" font-size="12" fill="#6b5a2a">chunks + embeddings</text>
+    <text x="88" y="516" font-size="12" fill="#6b5a2a">insights cache · validation results</text>
+    <text x="88" y="540" font-size="11" fill="#8a7742">SQLite fallback for local runs</text>
+  </g>
+
+  <path d="M302 480 H336" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <!-- FastAPI -->
+  <g>
+    <rect x="340" y="400" width="290" height="160" rx="10" fill="#e7f1ea" stroke="#2f7d5a" stroke-width="2"/>
+    <rect x="362" y="412" width="34" height="24" rx="5" fill="none" stroke="#2f7d5a" stroke-width="2.5"/>
+    <text x="379" y="429" font-size="12" font-weight="700" fill="#2f7d5a" text-anchor="middle">&lt;/&gt;</text>
+    <text x="406" y="430" font-size="15" font-weight="700" fill="#174e36">FastAPI</text>
+    <text x="358" y="462" font-size="12" fill="#3f6b57">Metrics engine: pure functions,</text>
+    <text x="358" y="480" font-size="12" fill="#3f6b57">34 tests vs hand-computed values</text>
+    <text x="358" y="498" font-size="12" fill="#3f6b57">Insights: grounding gate, fail closed</text>
+    <text x="358" y="516" font-size="12" fill="#3f6b57">Chat with page citations · scenario</text>
+    <text x="358" y="540" font-size="11" fill="#5b8a72">JWT auth · /docs OpenAPI</text>
+  </g>
+
+  <path d="M632 480 H666" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <!-- Next.js UI -->
+  <g>
+    <rect x="670" y="400" width="260" height="160" rx="10" fill="#ffffff" stroke="#94b3a5" stroke-width="2"/>
+    <rect x="692" y="414" width="36" height="26" rx="4" fill="none" stroke="#476b5e" stroke-width="2.5"/>
+    <path d="M692 422 h36" stroke="#476b5e" stroke-width="2"/>
+    <circle cx="697" cy="418" r="1.6" fill="#476b5e"/>
+    <circle cx="703" cy="418" r="1.6" fill="#476b5e"/>
+    <text x="738" y="432" font-size="15" font-weight="700" fill="#12291f">Next.js board report</text>
+    <text x="688" y="462" font-size="12" fill="#5b7268">KPI cards with deltas · charts</text>
+    <text x="688" y="480" font-size="12" fill="#5b7268">Provenance on hover for any figure</text>
+    <text x="688" y="498" font-size="12" fill="#5b7268">Audience + period switch · export</text>
+    <text x="688" y="516" font-size="12" fill="#5b7268">Senus brand theme, light + dark</text>
+  </g>
+
+  <path d="M932 480 H966" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+
+  <!-- Audiences -->
+  <g>
+    <rect x="970" y="415" width="190" height="130" rx="10" fill="#ffffff" stroke="#94b3a5" stroke-width="2"/>
+    <circle cx="1000" cy="440" r="9" fill="none" stroke="#476b5e" stroke-width="2.5"/>
+    <path d="M986 462 c2 -9 8 -13 14 -13 s12 4 14 13" fill="none" stroke="#476b5e" stroke-width="2.5"/>
+    <text x="1022" y="446" font-size="14" font-weight="700" fill="#12291f">4 audiences</text>
+    <text x="988" y="486" font-size="12" fill="#5b7268">Board · Management</text>
+    <text x="988" y="504" font-size="12" fill="#5b7268">Equity investors</text>
+    <text x="988" y="522" font-size="12" fill="#5b7268">Credit providers</text>
+  </g>
+
+  <!-- right margin legend -->
+  <g font-size="11.5" fill="#5b7268">
+    <path d="M1220 420 H1256" stroke="#476b5e" stroke-width="2.5" marker-end="url(#ag)"/>
+    <text x="1264" y="424">data flow</text>
+    <path d="M1220 446 H1256" stroke="#20948b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#at)"/>
+    <text x="1264" y="450">AI call</text>
+    <rect x="1220" y="466" width="12" height="12" rx="3" fill="#e5f2f0" stroke="#20948b"/>
+    <text x="1240" y="476">AI reads + writes</text>
+    <rect x="1220" y="488" width="12" height="12" rx="3" fill="#e7f1ea" stroke="#2f7d5a"/>
+    <text x="1240" y="498">deterministic code</text>
+    <rect x="1220" y="510" width="12" height="12" rx="3" fill="#f5efe0" stroke="#b8a26e"/>
+    <text x="1240" y="520">governed data</text>
+  </g>
+
+  <!-- principle strip -->
+  <rect x="40" y="630" width="1360" height="52" rx="12" fill="#0a3d2c"/>
+  <text x="720" y="662" font-size="15" fill="#eaf3ed" text-anchor="middle" font-weight="600">AI extracts and explains · deterministic code computes · humans gate what must be correct</text>
+</svg>
