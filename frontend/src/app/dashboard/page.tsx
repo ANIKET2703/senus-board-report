@@ -95,12 +95,14 @@ export default function Overview() {
                   </span>
                 )}
               </div>
-              {validation.checks.filter((c) => c.status !== "pass").map((c, i) => (
-                <div key={i} className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3 text-sm">
-                  <p className="font-medium text-[var(--warn)]">{c.check} ({c.period})</p>
-                  <p className="subtle mt-1 text-xs">{c.detail}</p>
-                </div>
-              ))}
+              <div className="space-y-2">
+                {validation.checks.filter((c) => c.status !== "pass").map((c, i) => (
+                  <div key={i} className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3 text-sm">
+                    <p className="font-medium text-[var(--warn)]">{c.check}{c.period ? ` (${c.period})` : ""}</p>
+                    <p className="subtle mt-1 text-xs">{c.detail}</p>
+                  </div>
+                ))}
+              </div>
               <p className="subtle mt-3 text-xs">
                 Every extracted figure passes deterministic accounting-identity checks
                 (balance sheet balances, cash flow ties, statement arithmetic). Findings

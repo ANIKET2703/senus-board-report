@@ -46,9 +46,8 @@ export default function Growth() {
           sub={`${eur(k("deals_closed_value") ?? null)} closed across ${k("deals_closed_customers") ?? "-"} enterprise customers · ${eur(k("open_pipeline_value") ?? null)} open pipeline`} />
       </div>
       <p className="subtle text-xs">
-        MoM views are not shown: Senus publishes audited FY and unaudited HY figures only, and no
-        monthly data exists in any filing. This is recorded as a disclosure-coverage finding in Data
-        quality rather than estimated, so every displayed number stays traceable to a source page.
+        No monthly (MoM) view: Senus publishes FY and half-year figures only - recorded as a
+        disclosure-coverage finding in Data quality.
       </p>
       <InsightCard section="growth" />
       <div className="grid gap-6 xl:grid-cols-2">
