@@ -3,7 +3,8 @@
 Guardrail: the model receives the computed metrics table (never raw PDFs) and
 every numeric claim in its output is verified against the fact/metric values
 before the insight is stored. A number that doesn't match a known value fails
-the insight closed. Insights are cached in the DB and versioned by prompt.
+the insight closed. Insights are cached in the DB, keyed by prompt version plus a fingerprint of the
+metrics table, so fact changes invalidate stale commentary automatically.
 """
 from __future__ import annotations
 

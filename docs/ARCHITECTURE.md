@@ -119,8 +119,9 @@ just for commentary and chat, never for numbers.
    At real scale this becomes pgvector with an HNSW index, which is why Postgres was
    chosen in the first place.
 
-8. **Commentary is generated from validated facts only, cached in the DB, versioned by
-   prompt.** The model receives the computed metrics table, never raw PDFs. After
+8. **Commentary is generated from validated facts only, cached in the DB, keyed by
+   prompt version plus a fingerprint of the metrics table** (fact changes invalidate
+   cached commentary automatically). The model receives the computed metrics table, never raw PDFs. After
    generation, every number in the output is checked against the table. If a number
    cannot be traced, the commentary is rejected (one retry, then fail closed).
 
@@ -166,9 +167,6 @@ Written down on purpose: knowing where the edges are is part of standing over th
 - The commentary grounding check compares numeric tokens, not meaning. A wrong sentence
   built from correct numbers would pass it. The production version makes the model emit
   claim-to-fact-key pairs and verifies each reference, not just the digits.
-- ~~The insight cache invalidates only when `prompt_version` is bumped.~~ Fixed: the
-  cache key now includes a fingerprint (SHA-256 prefix) of the metrics table, so any
-  change to the underlying facts invalidates cached commentary automatically.
 - Schema is created with SQLAlchemy `create_all`. A real deployment needs Alembic
   migrations from day one.
 - Auth is demo-grade: JWT with one seeded user, token in localStorage, no rate limiting.
