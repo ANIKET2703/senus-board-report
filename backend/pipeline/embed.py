@@ -1,6 +1,6 @@
 """Chunk documents and store retrieval vectors.
 
-Small corpus (~12 docs) => local embeddings (fastembed/bge-small) are ample;
+Small corpus (7 PDFs) => local embeddings (fastembed/bge-small) are ample;
 no second API vendor needed. If fastembed isn't installed the system falls
 back to BM25 at query time (app/services/rag.py) — chunks are stored either way.
 """

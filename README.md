@@ -19,7 +19,7 @@ Equity Investors and Credit Providers.
 
 ## The core design decision
 
-**AI extracts and explains. Deterministic code computes.**
+**AI does the reading and the writing. Deterministic code does every calculation.**
 
 LLMs are good at reading scanned financial statements and writing commentary, and not
 reliable at arithmetic. So the boundary is strict:
@@ -39,7 +39,7 @@ reliable at arithmetic. So the boundary is strict:
 Sequence diagrams for the two critical flows (grounded commentary, two-pass extraction),
 the ERD and the key technical decisions: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-## What to look at first
+## What stands out
 
 1. **Provenance everywhere.** Hover any figure in the P&L, balance sheet or cash flow
    tables: it shows the source document, page, extraction method (vision vs text layer)

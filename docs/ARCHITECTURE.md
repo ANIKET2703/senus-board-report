@@ -8,7 +8,7 @@ validation and metric calculations on top, and presents the result as an interac
 board report for four audiences: Management, the Board, Equity Investors and Credit
 Providers.
 
-## Core design principle: AI extracts and explains, deterministic code computes
+## Core design principle: AI does the reading and writing, deterministic code does every calculation
 
 LLMs are good at reading scanned financial statements and writing commentary. They are
 not reliable at arithmetic. So the boundary between the two is hard:
@@ -166,9 +166,9 @@ Written down on purpose: knowing where the edges are is part of standing over th
 - The commentary grounding check compares numeric tokens, not meaning. A wrong sentence
   built from correct numbers would pass it. The production version makes the model emit
   claim-to-fact-key pairs and verifies each reference, not just the digits.
-- The insight cache invalidates only when `prompt_version` is bumped. If facts changed
-  without a version bump, stale commentary could be served. Fix: include a hash of the
-  metrics table in the cache key.
+- ~~The insight cache invalidates only when `prompt_version` is bumped.~~ Fixed: the
+  cache key now includes a fingerprint (SHA-256 prefix) of the metrics table, so any
+  change to the underlying facts invalidates cached commentary automatically.
 - Schema is created with SQLAlchemy `create_all`. A real deployment needs Alembic
   migrations from day one.
 - Auth is demo-grade: JWT with one seeded user, token in localStorage, no rate limiting.
@@ -221,7 +221,7 @@ sequenceDiagram
     participant LLM as Claude
 
     UI->>API: GET /insights/{audience}/{section}?period=HY26 (JWT)
-    API->>DB: cache lookup (audience, section, period, prompt_version)
+    API->>DB: cache lookup (audience, section, period, prompt_version + metrics fingerprint)
     alt cached
         DB-->>API: stored commentary
         API-->>UI: content, cached=true
@@ -235,7 +235,7 @@ sequenceDiagram
             LLM-->>API: rewrite
             API->>API: re-check, reject if still ungrounded (fail closed)
         end
-        API->>DB: store insight (content, model, prompt_version)
+        API->>DB: store insight (content, model, prompt_version + metrics fingerprint)
         API-->>UI: content
     end
 ```
@@ -288,7 +288,7 @@ erDiagram
     }
     periods {
         int id PK
-        string label "FY24|FY25|HY25|HY26"
+        string label "FY24|FY25|HY25|HY26|MKT"
         date start_date
         date end_date
         string period_type

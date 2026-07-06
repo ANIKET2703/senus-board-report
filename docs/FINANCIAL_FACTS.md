@@ -119,6 +119,13 @@ share issue 1,138,683.
 - Leadership transition PR, 24 Jun 2026.
 - FY2028 EBITDA-positive guidance; FY26 outlook "in line with expectations", H1 seasonally weaker.
 
+## Market data and admission (Listing PR p.3; Euronext exports in data/market/)
+
+- Shares in issue at Admission: 2,561,332 ordinary shares of EUR 0.01 nominal (unchanged per the AGM Circular, Jun 2026).
+- Share admission price EUR 5.126; market capitalisation at Admission disclosed as EUR 13,130,000 (rounded; 2,561,332 x 5.126 = 13,129,388).
+- Closing price 3 Jul 2026: EUR 6.15; 52-week range 6.00-6.15; 52-week change +19.98% (ties to 6.15 / 5.126 - 1). Zero reported trading volume in the sampled window.
+- ISIN IE000O0F49R3 · ticker SENUS · Euronext Access+ Dublin.
+
 ## Known data-quality findings (surfaced in the app)
 
 1. HY25 gross profit line (272,331) vs turnover minus COS (271,331): EUR 1,000 inconsistency in the source PR.
