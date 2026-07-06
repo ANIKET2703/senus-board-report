@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { api, API_URL } from "@/lib/api";
+import { api, API_URL, getToken } from "@/lib/api";
 import { FileText, ScanEye, FileType2, UserCheck, AlertTriangle } from "lucide-react";
 import ApiDown from "@/components/ApiDown";
 
@@ -36,6 +36,30 @@ export default function Documents() {
         .catch((e) => console.warn(e));
     }
   }, [selected]);
+
+  // plain links drop the auth header, so fetch the file with the token and open the blob
+  const openSource = async () => {
+    if (!selected) return;
+    try {
+      const token = getToken();
+      const res = await fetch(`${API_URL}/api/documents/${selected.id}/pdf`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
+      if (!res.ok) throw new Error(`${res.status}`);
+      const url = URL.createObjectURL(await res.blob());
+      if (selected.filename.toLowerCase().endsWith(".pdf")) {
+        window.open(url, "_blank", "noopener");
+      } else {
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = selected.filename;
+        a.click();
+      }
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    } catch (e) {
+      console.warn("source file fetch failed:", e);
+    }
+  };
 
   if (apiDown) return <ApiDown />;
   return (
@@ -103,10 +127,10 @@ export default function Documents() {
         <div className="panel p-5">
           <div className="mb-3 flex items-center justify-between">
             <h2 className="h-title flex items-center gap-2"><FileText className="h-4 w-4" /> {selected.title}</h2>
-            <a className="rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm hover:border-[var(--accent)]"
-              href={`${API_URL}/api/documents/${selected.id}/pdf`} target="_blank" rel="noreferrer">
+            <button onClick={openSource}
+              className="rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm hover:border-[var(--accent)]">
               Open source file
-            </a>
+            </button>
           </div>
           {facts.length ? (
             <div className="max-h-96 overflow-y-auto">
