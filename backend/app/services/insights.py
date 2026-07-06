@@ -7,14 +7,23 @@ the insight closed. Insights are cached in the DB and versioned by prompt.
 """
 from __future__ import annotations
 
+import hashlib
 import re
 
 from sqlalchemy.orm import Session
 
-from app.core.config import get_settings
 from app.models import Insight
 
 PROMPT_VERSION = "v3"
+
+
+def _cache_version(metrics_context: str) -> str:
+    """Cache key = prompt version + fingerprint of the metrics the commentary was
+    grounded on. If any underlying fact or metric changes, the fingerprint changes
+    and stale cached commentary is never served."""
+    fp = hashlib.sha256(metrics_context.encode()).hexdigest()[:8]
+    return f"{PROMPT_VERSION}-{fp}"
+
 
 AUDIENCE_FRAMING = {
     "board": "the Board of Directors: balanced, strategic, focused on execution against Senus 2030 and risk oversight",
@@ -33,7 +42,7 @@ Rules:
 - Use ONLY numbers present in the metrics table. Never derive, extrapolate or
   round beyond one decimal place of a percentage.
 - Be candid about weaknesses (losses widened at HY26, HY26 growth of 4.1% is
-  far below the 50% CAGR commitment) — boards value honesty over polish.
+  far below the 50% CAGR commitment) - boards value honesty over polish.
 - 120-180 words, plain professional prose, no bullet points, no headers."""
 
 
@@ -66,23 +75,19 @@ def verify_grounding(text: str, metrics_context: str) -> list[str]:
 
 def get_or_generate(db: Session, audience: str, section: str, period: str,
                     metrics_context: str) -> dict:
-    settings = get_settings()
+    version = _cache_version(metrics_context)
     cached = (db.query(Insight)
               .filter_by(audience=audience, section=section, period_label=period,
-                         prompt_version=PROMPT_VERSION)
+                         prompt_version=version)
               .order_by(Insight.id.desc()).first())
     if cached:
         return {"content": cached.content, "model": cached.model, "cached": True}
 
-    if not settings.ai_commentary:
-        return {"content": None, "model": None, "cached": False,
-                "error": ("AI commentary generation is disabled (AI_COMMENTARY=0). "
-                          "Previously cached commentary is still served; all metrics remain fully functional.")}
-
     from app.services.llm import complete, provider_available
     if not provider_available():
         return {"content": None, "model": None, "cached": False,
-                "error": "No AI provider configured (set ANTHROPIC_API_KEY or GITHUB_TOKEN). All metrics remain fully functional."}
+                "error": ("AI commentary is not configured in this deployment. "
+                          "All metrics, statements and validations remain fully functional.")}
 
     prompt = (f"Audience: {AUDIENCE_FRAMING[audience]}.\n"
               f"Section: {section}. Reporting period focus: {period}.\n\n"
@@ -101,7 +106,7 @@ def get_or_generate(db: Session, audience: str, section: str, period: str,
 
     insight = Insight(audience=audience, section=section, period_label=period,
                       content=text, model=model_used,
-                      prompt_version=PROMPT_VERSION)
+                      prompt_version=version)
     db.add(insight)
     db.commit()
     return {"content": text, "model": model_used, "cached": False}

@@ -50,7 +50,7 @@ export default function Chat() {
       <div className="panel flex-1 space-y-4 overflow-y-auto p-5">
         {messages.length === 0 && (
           <div className="space-y-2">
-            <p className="subtle text-sm">Try one of these:</p>
+            <p className="subtle text-sm">Suggested questions</p>
             {SUGGESTIONS.map((s) => (
               <button key={s} onClick={() => ask(s)}
                 className="block rounded-lg border border-[var(--border)] px-3 py-2 text-left text-sm text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--text)]">

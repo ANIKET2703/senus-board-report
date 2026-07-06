@@ -12,3 +12,5 @@ out/
 nohup.out
 .fuse_hidden*
 *.tsbuildinfo
+*.egg-info/
+build/

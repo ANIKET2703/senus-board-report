@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { AudienceProvider, AUDIENCES, useAudience } from "@/lib/audience";
+import { AudienceProvider, AUDIENCES, useAudience, type Audience } from "@/lib/audience";
 import { PeriodProvider, PERIODS, usePeriod, type ReportPeriod } from "@/lib/period";
 import { api, getToken } from "@/lib/api";
 import {
   LayoutDashboard, TrendingUp, PieChart, Droplets, Scale, RotateCcw,
   Target, FileText, MessageSquare, LogOut, ShieldCheck, Sun, Moon,
-  AlertTriangle, Printer, Menu,
+  AlertTriangle, Printer, Menu, LineChart,
 } from "lucide-react";
 import { useTheme } from "@/lib/theme";
 
@@ -19,17 +19,20 @@ const NAV = [
   { href: "/dashboard/cash", label: "Cash & Liquidity", icon: Droplets },
   { href: "/dashboard/solvency", label: "Solvency & Leverage", icon: Scale },
   { href: "/dashboard/returns", label: "Returns", icon: RotateCcw },
+  { href: "/dashboard/valuation", label: "Valuation & Market", icon: LineChart },
   { href: "/dashboard/scenario", label: "Senus 2030", icon: Target },
   { href: "/dashboard/documents", label: "Documents & Audit", icon: FileText },
   { href: "/dashboard/chat", label: "Ask the Board Pack", icon: MessageSquare },
 ];
 
-// credit providers see solvency first; investors see growth + scenario first
+// credit providers see solvency first; investors see growth, valuation + scenario first
 const ORDER: Record<string, string[]> = {
   credit: ["/dashboard", "/dashboard/solvency", "/dashboard/cash", "/dashboard/profitability",
-           "/dashboard/growth", "/dashboard/returns", "/dashboard/scenario", "/dashboard/documents", "/dashboard/chat"],
-  investor: ["/dashboard", "/dashboard/growth", "/dashboard/scenario", "/dashboard/profitability",
-             "/dashboard/cash", "/dashboard/returns", "/dashboard/solvency", "/dashboard/documents", "/dashboard/chat"],
+           "/dashboard/growth", "/dashboard/returns", "/dashboard/valuation", "/dashboard/scenario",
+           "/dashboard/documents", "/dashboard/chat"],
+  investor: ["/dashboard", "/dashboard/growth", "/dashboard/valuation", "/dashboard/scenario",
+             "/dashboard/profitability", "/dashboard/cash", "/dashboard/returns", "/dashboard/solvency",
+             "/dashboard/documents", "/dashboard/chat"],
 };
 
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
@@ -37,7 +40,9 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const router = useRouter();
   const { audience } = useAudience();
   const nav = ORDER[audience]
-    ? ORDER[audience].map((h) => NAV.find((n) => n.href === h)!)
+    ? ORDER[audience]
+        .map((h) => NAV.find((n) => n.href === h))
+        .filter((n): n is (typeof NAV)[number] => Boolean(n))
     : NAV;
 
   return (
@@ -84,7 +89,9 @@ function TopBar({ onMenu }: { onMenu: () => void }) {
   const [checks, setChecks] = useState<ValidationSummary["summary"] | null>(null);
 
   useEffect(() => {
-    api<ValidationSummary>("/api/validation").then((v) => setChecks(v.summary)).catch(() => {});
+    api<ValidationSummary>("/api/validation")
+      .then((v) => setChecks(v.summary))
+      .catch((e) => console.warn("validation summary unavailable:", e));
   }, []);
 
   const selectCls =
@@ -96,7 +103,7 @@ function TopBar({ onMenu }: { onMenu: () => void }) {
         <Menu className="h-4 w-4" />
       </button>
       <label className="hidden text-xs uppercase tracking-wide text-[var(--muted)] sm:block">Viewing as</label>
-      <select value={audience} onChange={(e) => setAudience(e.target.value as never)} className={selectCls}>
+      <select value={audience} onChange={(e) => setAudience(e.target.value as Audience)} className={selectCls}>
         {AUDIENCES.map((a) => <option key={a.id} value={a.id}>{a.label}</option>)}
       </select>
       <label className="hidden text-xs uppercase tracking-wide text-[var(--muted)] sm:block">Period</label>

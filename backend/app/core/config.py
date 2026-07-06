@@ -7,7 +7,7 @@ absent.
 """
 from functools import lru_cache
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -19,10 +19,6 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str | None = None
     anthropic_model: str = "claude-sonnet-4-5"
-
-    # Cost control: 0/false disables LLM commentary generation entirely.
-    # Cached insights are still served from the DB; metrics are unaffected.
-    ai_commentary: bool = True
 
     # OpenAI-compatible fallback (e.g. GitHub Models free tier)
     github_token: str | None = None
@@ -39,8 +35,7 @@ class Settings(BaseSettings):
 
     cors_origins: str = "http://localhost:3000"
 
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(env_file=".env")
 
 
 @lru_cache

@@ -1,34 +1,20 @@
 """Senus Board Report API."""
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import auth, chat, documents, insights, metrics, scenario, statements, validation
+from app.api import (auth, chat, documents, insights, metrics, scenario, statements,
+                     validation, valuation)
 from app.core.config import get_settings
 from app.core.db import Base, engine
 
 settings = get_settings()
 
-app = FastAPI(
-    title="Senus Board Report API",
-    description="AI-native board reporting platform for Senus PLC (Assiduous Technology Graduate assignment)",
-    version="1.0.0",
-)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[o.strip() for o in settings.cors_origins.split(",")],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-for router in (auth.router, metrics.router, statements.router, insights.router,
-               chat.router, documents.router, scenario.router, validation.router):
-    app.include_router(router)
-
-
-@app.on_event("startup")
-def startup() -> None:
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    """Modern lifespan handler (replaces the deprecated @app.on_event hooks)."""
     Base.metadata.create_all(engine)
     # auto-seed on first boot so the app is demo-ready out of the box (fast: ~seconds)
     from pipeline.load import seed_database
@@ -48,6 +34,28 @@ def startup() -> None:
                 print(f"embed skipped: {exc}")
 
         threading.Thread(target=_embed, daemon=True).start()
+    yield
+
+
+app = FastAPI(
+    title="Senus Board Report API",
+    description="AI-native board reporting platform for Senus PLC (Assiduous Technology Graduate assignment)",
+    version="1.1.0",
+    lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[o.strip() for o in settings.cors_origins.split(",")],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+for router in (auth.router, metrics.router, statements.router, insights.router,
+               chat.router, documents.router, scenario.router, validation.router,
+               valuation.router):
+    app.include_router(router)
 
 
 @app.get("/health")

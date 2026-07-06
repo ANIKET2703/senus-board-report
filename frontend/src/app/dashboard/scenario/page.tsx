@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import InsightCard from "@/components/InsightCard";
+import ApiDown from "@/components/ApiDown";
 import { eur, pct } from "@/lib/format";
 import {
   ResponsiveContainer, ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, ReferenceLine,
@@ -19,15 +20,19 @@ export default function ScenarioPage() {
   const [grossMargin, setGrossMargin] = useState(0.7748);
   const [opexGrowth, setOpexGrowth] = useState(0.18);
   const [data, setData] = useState<Scenario | null>(null);
+  const [apiDown, setApiDown] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => {
-      api<Scenario>(`/api/scenario?growth=${growth}&gross_margin=${grossMargin}&opex_growth=${opexGrowth}`)
-        .then(setData);
+      const params = new URLSearchParams({
+        growth: String(growth), gross_margin: String(grossMargin), opex_growth: String(opexGrowth),
+      });
+      api<Scenario>(`/api/scenario?${params}`).then(setData).catch(() => setApiDown(true));
     }, 250);
     return () => clearTimeout(t);
   }, [growth, grossMargin, opexGrowth]);
 
+  if (apiDown) return <ApiDown />;
   return (
     <div className="space-y-6">
       <header>
@@ -82,8 +87,8 @@ export default function ScenarioPage() {
             <ResponsiveContainer width="100%" height={300}>
               <ComposedChart data={data.projection}>
                 <CartesianGrid stroke="rgba(139,149,165,0.18)" vertical={false} />
-                <XAxis dataKey="year" stroke="#8b95a5" fontSize={12} />
-                <YAxis stroke="#8b95a5" fontSize={12} tickFormatter={(v) => eur(v)} />
+                <XAxis dataKey="year" stroke="var(--muted)" fontSize={12} />
+                <YAxis stroke="var(--muted)" fontSize={12} tickFormatter={(v) => eur(v)} />
                 <ReferenceLine y={0} stroke="rgba(139,149,165,0.45)" />
                 <Tooltip formatter={(v) => eur(Number(v), false)}
                   contentStyle={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text)" }} />

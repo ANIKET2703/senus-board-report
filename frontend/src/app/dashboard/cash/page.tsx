@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, FactRow, MetricCategories } from "@/lib/api";
 import MetricCard from "@/components/MetricCard";
+import ApiDown from "@/components/ApiDown";
 import InsightCard from "@/components/InsightCard";
 import ProvenanceTable from "@/components/ProvenanceTable";
 import { eur } from "@/lib/format";
@@ -17,11 +18,15 @@ export default function Cash() {
   const [cf, setCf] = useState<FactRow[]>([]);
   const [period, setPeriod] = useState("FY25");
 
+  const [apiDown, setApiDown] = useState(false);
   useEffect(() => {
-    api<MetricCategories>("/api/metrics").then(setMetrics);
-    api<FactRow[]>("/api/statements/cf").then(setCf);
+    api<MetricCategories>("/api/metrics").then(setMetrics).catch(() => setApiDown(true));
+    api<FactRow[]>("/api/statements/cf").then(setCf).catch((e) => console.warn(e));
   }, []);
-  useEffect(() => { api<Bridge>(`/api/metrics/fcf-bridge/${period}`).then(setBridge); }, [period]);
+  useEffect(() => {
+    api<Bridge>(`/api/metrics/fcf-bridge/${period}`).then(setBridge).catch((e) => console.warn(e));
+  }, [period]);
+  if (apiDown) return <ApiDown />;
   if (!metrics) return <p className="subtle animate-pulse">Loading…</p>;
 
   // waterfall: cumulative offsets
@@ -58,12 +63,13 @@ export default function Cash() {
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={waterfall}>
             <CartesianGrid stroke="rgba(139,149,165,0.18)" vertical={false} />
-            <XAxis dataKey="name" stroke="#8b95a5" fontSize={11} interval={0} angle={-15} textAnchor="end" height={60} />
-            <YAxis stroke="#8b95a5" fontSize={12} tickFormatter={(v) => eur(v)} />
+            <XAxis dataKey="name" stroke="var(--muted)" fontSize={11} interval={0} angle={-15} textAnchor="end" height={60} />
+            <YAxis stroke="var(--muted)" fontSize={12} tickFormatter={(v) => eur(v)} />
             <ReferenceLine y={0} stroke="rgba(139,149,165,0.45)" />
             <Tooltip formatter={(v) => eur(Number(v), false)}
-              contentStyle={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text)" }} />
-            <Bar dataKey="offset" stackId="w" fill="transparent" />
+              contentStyle={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text)" }}
+              itemStyle={{ color: "var(--chart-2)" }} />
+            <Bar dataKey="offset" stackId="w" fill="transparent" tooltipType="none" />
             <Bar dataKey="value" stackId="w" radius={[4, 4, 0, 0]}>
               {waterfall.map((s, i) => (
                 <Cell key={i} fill={s.name === "FCF" ? "var(--chart-1)" : s.value >= 0 ? "var(--pos)" : "var(--neg)"} />
@@ -76,7 +82,7 @@ export default function Cash() {
         </p>}
       </div>
       <div>
-        <h2 className="h-title mb-3">Consolidated cash flow - hover any figure for provenance</h2>
+        <h2 className="h-title mb-3">Consolidated cash flow</h2>
         <ProvenanceTable rows={cf} periods={["FY24", "FY25", "HY25", "HY26"]} />
       </div>
     </div>

@@ -1,6 +1,8 @@
+import mimetypes
+from pathlib import Path
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import FileResponse
-from pathlib import Path
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
@@ -12,6 +14,7 @@ router = APIRouter(prefix="/api/documents", tags=["documents"],
 
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE_DIR = ROOT / "data" / "source_documents"
+MARKET_DIR = ROOT / "data" / "market"  # Euronext price exports (xlsx)
 
 
 @router.get("")
@@ -25,14 +28,18 @@ def documents(db: Session = Depends(get_db)):
 
 
 @router.get("/{doc_id}/pdf")
-def document_pdf(doc_id: int, db: Session = Depends(get_db)):
+def document_file(doc_id: int, db: Session = Depends(get_db)):
+    """Serve the source file behind a document (PDF filings or market-data xlsx)."""
     doc = db.get(Document, doc_id)
     if not doc:
         raise HTTPException(404)
     path = SOURCE_DIR / doc.filename
     if not path.exists():
-        raise HTTPException(404, "source PDF not present in this deployment")
-    return FileResponse(path, media_type="application/pdf", filename=doc.filename)
+        path = MARKET_DIR / doc.filename
+    if not path.exists():
+        raise HTTPException(404, "source file not present in this deployment")
+    media = mimetypes.guess_type(doc.filename)[0] or "application/octet-stream"
+    return FileResponse(path, media_type=media, filename=doc.filename)
 
 
 @router.get("/{doc_id}/facts")

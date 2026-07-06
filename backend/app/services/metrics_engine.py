@@ -11,7 +11,7 @@ Conventions
   source accounts (costs negative).
 - On a pre-profit company several classic ratios are not meaningful in their
   textbook form. Rather than emitting misleading numbers, metrics carry an
-  optional `caveat` explaining interpretation — a deliberate product decision
+  optional `caveat` explaining interpretation - a deliberate product decision
   for a board/credit audience.
 """
 from __future__ import annotations
@@ -203,16 +203,29 @@ def dscr(facts: Facts, period: str, annualise: float = 1.0) -> Metric:
     with an explicit caveat: debt service is currently funded from equity,
     not operations. Reporting a raw negative honestly is more useful to a
     credit provider than suppressing the metric.
+
+    Suppression rule: if scheduled principal is NOT disclosed for the period
+    (HY balance sheets don't split creditors by maturity), an interest-only
+    denominator would produce an enormous, meaningless ratio (e.g. -340x next
+    to FY25's -50x). Incomplete debt service => no ratio, with the reason.
     """
     e = (ebitda(facts, period).value or 0.0) * annualise
     interest = abs(facts.get("interest_expense", 0) or 0) * annualise
+    if "debt_due_lt_1yr" not in facts:
+        return Metric(
+            "dscr", "Debt service coverage ratio", None, "x", period,
+            caveat=("Scheduled principal due <1yr is not disclosed at this date "
+                    "(interim balance sheets don't split creditors by maturity), so full "
+                    "debt service is unknown. Ratio suppressed rather than computed "
+                    "interest-only - the last complete figure is FY25."),
+            inputs={"ebitda": round(e, 2), "interest": interest})
     principal = facts.get("debt_due_lt_1yr", 0) or 0
     service = interest + principal
     value = e / service if service else None
     caveat = None
     if value is not None and value < 1:
         caveat = ("DSCR < 1: debt service is funded from equity/cash reserves, not "
-                  "operating earnings — expected at this stage; EBITDA-positive guidance is FY2028.")
+                  "operating earnings - expected at this stage; EBITDA-positive guidance is FY2028.")
     return Metric("dscr", "Debt service coverage ratio", value, "x", period, caveat=caveat,
                   inputs={"ebitda": round(e, 2), "interest": interest, "scheduled_principal": principal})
 
@@ -229,7 +242,7 @@ def gearing(facts: Facts, period: str) -> Metric:
 # ---------------------------------------------------------------- returns ----
 
 def roce(facts: Facts, period: str, annualise: float = 1.0) -> Metric:
-    """ROCE = EBIT / capital employed (total assets − current liabilities).
+    """ROCE = EBIT / capital employed (total assets - current liabilities).
 
     Negative while the company invests ahead of revenue; trend matters more
     than level. Caveated, not hidden.
@@ -243,7 +256,8 @@ def roce(facts: Facts, period: str, annualise: float = 1.0) -> Metric:
     value = (op * annualise) / capital_employed if capital_employed and op is not None else None
     caveat = None
     if value is not None and value < 0:
-        caveat = "Negative while operating losses persist; watch the trend toward FY2028 EBITDA guidance."
+        caveat = ("Negative while operating losses persist; the trend toward the FY2028 "
+                  "EBITDA guidance matters more than the level.")
     return Metric("roce", "Return on capital employed", value, "pct", period, caveat=caveat,
                   inputs={"ebit_annualised": round((op or 0) * annualise, 2),
                           "capital_employed": capital_employed})
@@ -300,5 +314,5 @@ def compute_all(facts_by_period: dict[str, Facts]) -> dict:
 
 
 def _ltm_revenue(fy25: Facts, hy25: Facts, hy26: Facts) -> float:
-    """LTM to Dec-25 = FY25 − HY25 + HY26."""
+    """LTM to Dec-25 = FY25 - HY25 + HY26."""
     return (fy25.get("revenue", 0) or 0) - (hy25.get("revenue", 0) or 0) + (hy26.get("revenue", 0) or 0)

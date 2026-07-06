@@ -2,7 +2,7 @@
 
 **Aniket Nimbalkar · Assiduous Technology Graduate Assessment**
 
-**Live demo:** _[URL]_ · **Video:** _[YouTube]_ · **Repo:** https://github.com/ANIKET2703/senus-board-report · Login: `ceo@senus.com` / `senus2030`
+**Live demo:** https://senus-board-report-aniket.vercel.app · **Video:** _[YouTube]_ · **Repo:** https://github.com/ANIKET2703/senus-board-report · Login: `ceo@senus.com` / `senus2030`
 
 ## What I built
 
@@ -12,15 +12,17 @@ extracts the financials from the source PDFs, including the two key documents th
 scanned images with no text layer, into a PostgreSQL database where every figure keeps
 its source document, page, extraction method and confidence. A unit-tested metrics
 engine computes the board metrics (growth, margins, EBITDA to FCF bridge, cash runway,
-working capital, DSCR, ROCE). Claude writes audience-specific commentary and answers
-free-form questions with page-level citations, using validated facts only.
+working capital, DSCR, ROCE, and a market-based valuation view: EV/LTM revenue of
+17.7x compressing to 2.4x by FY30 if the Senus 2030 commitment is delivered). Claude
+writes audience-specific commentary and answers free-form questions with page-level
+citations, using validated facts only.
 
 ## The design principle
 
 AI extracts and explains; deterministic code computes. LLMs read scanned accounts well
-and do arithmetic badly, so the boundary is strict: extraction output must pass 21
+and do arithmetic badly, so the boundary is strict: extraction output must pass 24
 accounting-identity checks before it counts as a fact, metrics are pure functions
-covered by 34 tests against hand-computed values, and commentary is checked after
+covered by 43 tests against hand-computed values, and commentary is checked after
 generation. Any number that cannot be traced back to a validated fact causes the
 commentary to be rejected.
 

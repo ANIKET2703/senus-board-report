@@ -9,7 +9,8 @@ from app.services.insights import AUDIENCE_FRAMING, get_or_generate
 router = APIRouter(prefix="/api/insights", tags=["insights"],
                    dependencies=[Depends(get_current_user)])
 
-SECTIONS = {"overview", "growth", "profitability", "cash", "solvency", "returns", "outlook"}
+SECTIONS = {"overview", "growth", "profitability", "cash", "solvency", "returns",
+            "valuation", "outlook"}
 
 
 @router.get("/{audience}/{section}")

@@ -16,7 +16,9 @@ export default function InsightCard({ section }: { section: string }) {
   useEffect(() => {
     setLoading(true);
     api<InsightResponse>(`/api/insights/${audience}/${section}?period=${period}`)
-      .then(setData).catch(() => setData(null)).finally(() => setLoading(false));
+      .then(setData)
+      .catch((e) => { console.warn(`insight ${section}/${audience} unavailable:`, e); setData(null); })
+      .finally(() => setLoading(false));
   }, [audience, section, period]);
 
   return (

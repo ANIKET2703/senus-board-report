@@ -95,7 +95,9 @@ just for commentary and chat, never for numbers.
 
 5. **Validation is deterministic and visible.** Balance sheet balances, cash flow ties
    to balance sheet cash, gross profit equals revenue minus cost of sales, cross-period
-   cash continuity, customer counts sum to the stated total. Failures are not hidden;
+   cash continuity, customer counts sum to the stated total, loan maturity buckets sum
+   to balance-sheet bank debt, and the admission market cap ties to shares x admission
+   price across two independent sources. Failures are not hidden;
    they appear in the app as data-quality findings. The source documents contain two
    real inconsistencies the pipeline caught: a EUR 1,000 gross profit tie-out difference
    in the HY25 comparatives and a EUR 50 goodwill discrepancy in the HY26 PR. A further
@@ -103,10 +105,13 @@ just for commentary and chat, never for numbers.
    views: they cannot be built from source without inventing numbers.
 
 6. **Metrics engine is pure functions with unit tests.** EBITDA, the FCF bridge, runway,
-   DSCR, ROCE, working capital and growth rates are computed from validated facts and
-   asserted against hand-computed values (34 tests). On a pre-profit company some
-   textbook ratios mislead, so metrics carry explicit caveats (negative DSCR means debt
-   service is currently equity-funded) instead of being suppressed.
+   DSCR, ROCE, working capital, growth rates and the valuation view (market cap, EV,
+   EV/revenue on the guidance path) are computed from validated facts and asserted
+   against hand-computed values (43 tests). On a pre-profit company some textbook ratios
+   mislead, so metrics carry explicit caveats (negative DSCR means debt service is
+   currently equity-funded). Where an input is not disclosed at all — HY balance sheets
+   don't split creditors by maturity, so HY debt service is unknowable — the ratio is
+   suppressed with the reason rather than computed from a partial denominator.
 
 7. **Local embeddings, BM25 fallback.** The corpus is 7 documents. A hosted embedding
    API would add a second vendor for no gain at this size. Vectors are stored as JSON
@@ -141,7 +146,7 @@ documents. The choices, and the options rejected, with reasons:
 | Structured output via forced tool_use | `pipeline/schemas.py` | Malformed extraction is rejected at the schema boundary |
 | Per-value confidence scores | schema field | The model flags blurry or ambiguous values itself |
 | Two-pass verification of low-confidence values | `verify_low_confidence()` in `pipeline/extract.py` | Values below 0.9 confidence are re-read independently from their own page at 200dpi. The first value is withheld so the second read is not anchored. Agreement raises confidence, disagreement sends the fact to the review queue |
-| Deterministic accounting-identity validation | `pipeline/validate.py` | 21 identity checks, no AI judgement |
+| Deterministic accounting-identity validation | `pipeline/validate.py` | 24 identity checks + a disclosure-coverage finding, no AI judgement |
 | Cross-document comparison | pipeline + manual merge | FY25 appears in two filings; comparing them caught a live one-digit vision misread (838,991 vs 836,991) |
 | Human review queue | `/api/validation/review-queue` + Documents page | Facts below 0.9 confidence are excluded from commentary until a person signs them off |
 
@@ -180,13 +185,13 @@ Written down on purpose: knowing where the edges are is part of standing over th
 senus-board-report/
 ├── backend/
 │   ├── app/
-│   │   ├── api/            # routers: metrics, statements, insights, chat, documents, scenario, validation, auth
+│   │   ├── api/            # routers: metrics, statements, insights, chat, documents, scenario, validation, valuation, auth
 │   │   ├── core/           # config, db, security
 │   │   ├── models/         # SQLAlchemy models
 │   │   ├── services/       # metrics_engine, insights, rag, scenario, llm
 │   │   └── main.py
 │   ├── pipeline/           # extract, validate, load, embed
-│   ├── tests/              # 34 tests against hand-computed values
+│   ├── tests/              # 43 tests against hand-computed values
 │   └── pyproject.toml
 ├── frontend/
 │   ├── src/app/            # Next.js App Router pages
@@ -194,6 +199,7 @@ senus-board-report/
 │   └── src/lib/            # api client, audience/period/theme contexts
 ├── data/
 │   ├── source_documents/   # the published Senus/ADF filings (inputs)
+│   ├── market/             # Euronext price exports behind the Valuation view
 │   └── extracted/          # versioned pipeline output (facts.json + raw per-document runs)
 ├── docs/                   # this file, FINANCIAL_FACTS.md, ONE_PAGE_WRITEUP.md, diagrams/
 ├── docker-compose.yml
@@ -259,7 +265,7 @@ sequenceDiagram
     CLI->>CLI: write raw extraction JSON per document (committed in data/extracted/raw/)
     Note over CLI: human-reviewed merge into facts.json
     CLI->>VAL: pipeline.run --validate (runs on facts.json)
-    VAL-->>CLI: 21 identity checks + cross-document comparison, pass/warn/fail
+    VAL-->>CLI: 24 identity checks + cross-document comparison, pass/warn/fail
     Note over CLI,VAL: only facts that survive this become the app's data
 ```
 

@@ -44,6 +44,10 @@ export default function ProvenanceTable({ rows, periods }: { rows: FactRow[]; pe
           ))}
         </tbody>
       </table>
+      <p className="subtle flex items-center gap-1.5 border-t border-[var(--border)] px-3 py-2 text-xs">
+        <FileSearch className="h-3 w-3" />
+        Every value is source-linked - document, page, extraction method and confidence appear on hover.
+      </p>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, FactRow, Metric, MetricCategories } from "@/lib/api";
 import MetricCard from "@/components/MetricCard";
+import ApiDown from "@/components/ApiDown";
 import InsightCard from "@/components/InsightCard";
 import { eur } from "@/lib/format";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
@@ -18,13 +19,15 @@ export default function Overview() {
   const [metrics, setMetrics] = useState<MetricCategories | null>(null);
   const [validation, setValidation] = useState<Validation | null>(null);
   const [pnl, setPnl] = useState<FactRow[]>([]);
+  const [apiDown, setApiDown] = useState(false);
 
   useEffect(() => {
-    api<MetricCategories>("/api/metrics").then(setMetrics);
-    api<Validation>("/api/validation").then(setValidation);
-    api<FactRow[]>("/api/statements/pnl").then(setPnl);
+    api<MetricCategories>("/api/metrics").then(setMetrics).catch(() => setApiDown(true));
+    api<Validation>("/api/validation").then(setValidation).catch((e) => console.warn(e));
+    api<FactRow[]>("/api/statements/pnl").then(setPnl).catch((e) => console.warn(e));
   }, []);
 
+  if (apiDown) return <ApiDown />;
   if (!metrics) return <p className="subtle animate-pulse">Loading board pack…</p>;
 
   const find = (cat: keyof MetricCategories, key: string, period?: string): Metric | undefined =>
@@ -50,16 +53,16 @@ export default function Overview() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {find("growth", "revenue_growth", "FY25") &&
           <MetricCard metric={find("growth", "revenue_growth", "FY25")!}
-            sub="HY26 grew 4.1% vs HY25" />}
+            sub="HY26 grew 4.1% vs HY25" footerPinned={false} />}
         {find("profitability", "gross_margin", "HY26") &&
           <MetricCard metric={find("profitability", "gross_margin", "HY26")!}
-            prior={find("profitability", "gross_margin", "HY25")} />}
+            prior={find("profitability", "gross_margin", "HY25")} footerPinned={false} />}
         {find("cash", "cash_runway", "HY26") &&
           <MetricCard metric={find("cash", "cash_runway", "HY26")!}
-            prior={find("cash", "cash_runway", "FY25")} />}
+            prior={find("cash", "cash_runway", "FY25")} footerPinned={false} />}
         {find("profitability", "ebitda", "HY26") &&
           <MetricCard metric={find("profitability", "ebitda", "HY26")!}
-            prior={find("profitability", "ebitda", "HY25")} />}
+            prior={find("profitability", "ebitda", "HY25")} footerPinned={false} />}
       </div>
 
       <InsightCard section="overview" />
@@ -96,8 +99,8 @@ export default function Overview() {
                 )}
               </div>
               <div className="space-y-2">
-                {validation.checks.filter((c) => c.status !== "pass").map((c, i) => (
-                  <div key={i} className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3 text-sm">
+                {validation.checks.filter((c) => c.status !== "pass").map((c) => (
+                  <div key={`${c.check}-${c.period ?? "all"}`} className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3 text-sm">
                     <p className="font-medium text-[var(--warn)]">{c.check}{c.period ? ` (${c.period})` : ""}</p>
                     <p className="subtle mt-1 text-xs">{c.detail}</p>
                   </div>
@@ -115,14 +118,14 @@ export default function Overview() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <MetricCard metric={find("growth", "senus2030_progress")!} sub="LTM revenue vs level implied by 50% CAGR commitment" />
+        <MetricCard metric={find("growth", "senus2030_progress")!} sub="LTM revenue vs level implied by 50% CAGR commitment" footerPinned={false} />
         <MetricCard metric={find("solvency", "net_debt", "HY26")!}
           prior={find("solvency", "net_debt", "FY25")} higherIsBetter={false}
-          sub="Negative = net cash position" />
+          sub="Negative = net cash position" footerPinned={false} />
         <MetricCard metric={find("cash", "working_capital", "HY26")!}
-          prior={find("cash", "working_capital", "FY25")} />
+          prior={find("cash", "working_capital", "FY25")} footerPinned={false} />
         <MetricCard metric={find("returns", "roce", "HY26")!}
-          prior={find("returns", "roce", "FY25")} />
+          prior={find("returns", "roce", "FY25")} footerPinned={false} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, FactRow, Metric, MetricCategories } from "@/lib/api";
 import MetricCard from "@/components/MetricCard";
+import ApiDown from "@/components/ApiDown";
 import InsightCard from "@/components/InsightCard";
 import { eur } from "@/lib/format";
 import {
@@ -15,10 +16,12 @@ export default function Growth() {
   const [metrics, setMetrics] = useState<MetricCategories | null>(null);
   const [kpis, setKpis] = useState<FactRow[]>([]);
 
+  const [apiDown, setApiDown] = useState(false);
   useEffect(() => {
-    api<MetricCategories>("/api/metrics").then(setMetrics);
-    api<FactRow[]>("/api/statements/kpi").then(setKpis);
+    api<MetricCategories>("/api/metrics").then(setMetrics).catch(() => setApiDown(true));
+    api<FactRow[]>("/api/statements/kpi").then(setKpis).catch((e) => console.warn(e));
   }, []);
+  if (apiDown) return <ApiDown />;
   if (!metrics) return <p className="subtle animate-pulse">Loading…</p>;
 
   const k = (code: string) => kpis.find((x) => x.line_code === code)?.value;
@@ -40,7 +43,12 @@ export default function Growth() {
         <p className="subtle mt-1">FY25 revenue €836,991 across 138 customer accounts · Senus 2030 targets ≥50% CAGR</p>
       </header>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {metrics.growth.map((m: Metric) => <MetricCard key={m.key + m.period} metric={m} />)}
+        {metrics.growth.map((m: Metric) => (
+          <MetricCard key={m.key + m.period} metric={m}
+            sub={m.key === "revenue_growth" && m.inputs.revenue_prior
+              ? `${eur(m.inputs.revenue_prior, false)} → ${eur(m.inputs.revenue_current, false)}`
+              : undefined} />
+        ))}
         <MetricCard metric={{ key: "bookings", label: "Bookings (deals closed)",
           value: k("deals_closed_value") ?? null, unit: "EUR", period: "HY26", caveat: null, inputs: {} }}
           sub={`${eur(k("deals_closed_value") ?? null)} closed across ${k("deals_closed_customers") ?? "-"} enterprise customers · ${eur(k("open_pipeline_value") ?? null)} open pipeline`} />
@@ -70,8 +78,8 @@ export default function Growth() {
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={acv} layout="vertical">
               <CartesianGrid stroke="rgba(139,149,165,0.18)" horizontal={false} />
-              <XAxis type="number" stroke="#8b95a5" fontSize={12} tickFormatter={(v) => eur(v)} />
-              <YAxis type="category" dataKey="product" stroke="#8b95a5" fontSize={12} width={110} />
+              <XAxis type="number" stroke="var(--muted)" fontSize={12} tickFormatter={(v) => eur(v)} />
+              <YAxis type="category" dataKey="product" stroke="var(--muted)" fontSize={12} width={110} />
               <Tooltip formatter={(v) => eur(Number(v), false)}
                 contentStyle={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text)" }} />
               <Bar dataKey="acv" fill="var(--chart-1)" radius={[0, 4, 4, 0]} />

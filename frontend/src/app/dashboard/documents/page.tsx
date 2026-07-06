@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, API_URL } from "@/lib/api";
 import { FileText, ScanEye, FileType2, UserCheck, AlertTriangle } from "lucide-react";
+import ApiDown from "@/components/ApiDown";
 
 interface Doc {
   id: number; filename: string; title: string; doc_type: string;
@@ -23,14 +24,20 @@ export default function Documents() {
   const [facts, setFacts] = useState<DocFact[]>([]);
   const [queue, setQueue] = useState<ReviewQueue | null>(null);
 
+  const [apiDown, setApiDown] = useState(false);
   useEffect(() => {
-    api<Doc[]>("/api/documents").then(setDocs);
-    api<ReviewQueue>("/api/validation/review-queue").then(setQueue).catch(() => {});
+    api<Doc[]>("/api/documents").then(setDocs).catch(() => setApiDown(true));
+    api<ReviewQueue>("/api/validation/review-queue").then(setQueue)
+      .catch((e) => console.warn("review queue unavailable:", e));
   }, []);
   useEffect(() => {
-    if (selected) api<DocFact[]>(`/api/documents/${selected.id}/facts`).then(setFacts);
+    if (selected) {
+      api<DocFact[]>(`/api/documents/${selected.id}/facts`).then(setFacts)
+        .catch((e) => console.warn(e));
+    }
   }, [selected]);
 
+  if (apiDown) return <ApiDown />;
   return (
     <div className="space-y-6">
       <header>
@@ -86,7 +93,7 @@ export default function Documents() {
             </div>
             <p className="text-sm font-medium leading-snug">{d.title}</p>
             <p className="subtle mt-2 text-xs">
-              {d.published_date} · {d.pages} pages · {d.has_text_layer ? "text layer" : "scanned - vision extraction"}
+              {d.published_date} ·{d.pages ? ` ${d.pages} pages ·` : ""} {d.doc_type === "market_data" ? "market-data export" : d.has_text_layer ? "text layer" : "scanned - vision extraction"}
             </p>
             <p className="mt-1 text-xs text-[var(--accent)]">{d.facts_extracted} facts extracted</p>
           </button>
@@ -98,7 +105,7 @@ export default function Documents() {
             <h2 className="h-title flex items-center gap-2"><FileText className="h-4 w-4" /> {selected.title}</h2>
             <a className="rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm hover:border-[var(--accent)]"
               href={`${API_URL}/api/documents/${selected.id}/pdf`} target="_blank" rel="noreferrer">
-              Open source PDF
+              Open source file
             </a>
           </div>
           {facts.length ? (

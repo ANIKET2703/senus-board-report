@@ -34,7 +34,10 @@ def metrics_context_string(db: Session) -> str:
     lines = []
     for period, facts in sorted(fbp.items()):
         for code, value in sorted(facts.items()):
-            lines.append(f"{period} {code} = {value:,.0f}")
+            # small values (share price, ratios) keep their decimals; rounding
+            # 6.15 to "6" would break the numeric grounding check downstream
+            v = f"{value:g}" if abs(value) < 1000 else f"{value:,.0f}"
+            lines.append(f"{period} {code} = {v}")
     for category, metrics in compute_all(fbp).items():
         for m in metrics:
             if m["value"] is not None:

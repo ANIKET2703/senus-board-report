@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, FactRow, MetricCategories } from "@/lib/api";
 import MetricCard from "@/components/MetricCard";
+import ApiDown from "@/components/ApiDown";
 import InsightCard from "@/components/InsightCard";
 import ProvenanceTable from "@/components/ProvenanceTable";
 import { pct } from "@/lib/format";
@@ -13,10 +14,12 @@ export default function Profitability() {
   const [metrics, setMetrics] = useState<MetricCategories | null>(null);
   const [pnl, setPnl] = useState<FactRow[]>([]);
 
+  const [apiDown, setApiDown] = useState(false);
   useEffect(() => {
-    api<MetricCategories>("/api/metrics").then(setMetrics);
-    api<FactRow[]>("/api/statements/pnl").then(setPnl);
+    api<MetricCategories>("/api/metrics").then(setMetrics).catch(() => setApiDown(true));
+    api<FactRow[]>("/api/statements/pnl").then(setPnl).catch((e) => console.warn(e));
   }, []);
+  if (apiDown) return <ApiDown />;
   if (!metrics) return <p className="subtle animate-pulse">Loading…</p>;
 
   const series = ["FY24", "FY25", "HY25", "HY26"].map((p) => ({
@@ -53,8 +56,8 @@ export default function Profitability() {
         <ResponsiveContainer width="100%" height={280}>
           <LineChart data={series}>
             <CartesianGrid stroke="rgba(139,149,165,0.18)" vertical={false} />
-            <XAxis dataKey="period" stroke="#8b95a5" fontSize={12} />
-            <YAxis stroke="#8b95a5" fontSize={12} tickFormatter={(v) => pct(v, 0)} />
+            <XAxis dataKey="period" stroke="var(--muted)" fontSize={12} />
+            <YAxis stroke="var(--muted)" fontSize={12} tickFormatter={(v) => pct(v, 0)} />
             <Tooltip formatter={(v) => pct(Number(v))}
               contentStyle={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text)" }} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
@@ -65,7 +68,7 @@ export default function Profitability() {
         </ResponsiveContainer>
       </div>
       <div>
-        <h2 className="h-title mb-3">Consolidated P&L - hover any figure for source provenance</h2>
+        <h2 className="h-title mb-3">Consolidated P&L</h2>
         <ProvenanceTable rows={pnl} periods={["FY24", "FY25", "HY25", "HY26"]} />
       </div>
     </div>

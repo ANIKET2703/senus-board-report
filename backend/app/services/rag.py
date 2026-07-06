@@ -72,7 +72,7 @@ providers.
 
 Rules:
 - Answer ONLY from the provided source passages and validated metrics. If the
-  answer isn't in them, say so plainly — never guess or use outside knowledge.
+  answer isn't in them, say so plainly - never guess or use outside knowledge.
 - Cite every factual claim as [document title, p.N].
 - Money figures: state exactly as sourced, with EUR and the period.
 - Be concise and board-appropriate: direct, factual, no hype.
@@ -86,9 +86,8 @@ def answer(db: Session, question: str, metrics_context: str) -> dict:
     from app.services.llm import complete, provider_available
     passages = retrieve(db, question)
     if not provider_available():
-        return {"answer": ("AI chat requires an AI provider (set ANTHROPIC_API_KEY or "
-                           "GITHUB_TOKEN). Retrieval still works - relevant passages are "
-                           "shown below."),
+        return {"answer": ("AI chat is not configured in this deployment. Retrieval "
+                           "still works - the most relevant source passages are shown below."),
                 "citations": passages, "model": None}
 
     context = "\n\n".join(
