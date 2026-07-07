@@ -99,8 +99,10 @@ just for commentary and chat, never for numbers.
    to balance-sheet bank debt, and the admission market cap ties to shares x admission
    price across two independent sources. Failures are not hidden;
    they appear in the app as data-quality findings. The source documents contain two
-   real inconsistencies the pipeline caught: a EUR 1,000 gross profit tie-out difference
-   in the HY25 comparatives and a EUR 50 goodwill discrepancy in the HY26 PR. A further
+   real inconsistencies caught during extraction and review: a EUR 1,000 gross profit
+   tie-out difference in the HY25 comparatives (an automated finding, shown in the app)
+   and a EUR 50 goodwill discrepancy in the HY26 PR (found in the human cross-check,
+   documented in FINANCIAL_FACTS.md). A further
    finding records that Senus publishes no monthly data, which is why there are no MoM
    views: they cannot be built from source without inventing numbers.
 

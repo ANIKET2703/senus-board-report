@@ -45,13 +45,15 @@ the ERD and the key technical decisions: [`docs/ARCHITECTURE.md`](docs/ARCHITECT
 1. **Provenance everywhere.** Hover any figure in the P&L, balance sheet or cash flow
    tables: it shows the source document, page, extraction method (vision vs text layer)
    and confidence. The Documents page lists every fact per document.
-2. **The validation layer caught two real errors in Senus's published documents:**
+2. **The validation process caught two real errors in Senus's published documents:**
    - HY26 results PR: HY25 comparative gross profit is stated as 272,331, but
-     revenue minus cost of sales is 271,331 (a EUR 1,000 tie-out difference).
+     revenue minus cost of sales is 271,331 (a EUR 1,000 tie-out difference). Caught
+     by an automated identity check and surfaced in the app as a data-quality finding.
    - The same PR states Loamin goodwill as 669,500 in the notes but 669,550 in the
-     balance sheet.
-   These show up in the app as data-quality findings. The pipeline records values
-   exactly as printed and flags inconsistencies instead of silently fixing them.
+     balance sheet. Caught in the human cross-check of extraction output and recorded
+     in [docs/FINANCIAL_FACTS.md](docs/FINANCIAL_FACTS.md).
+   In both cases values are recorded exactly as printed and the inconsistency is
+   flagged, never silently fixed.
 3. **Honest finance on a pre-profit micro-cap.** DSCR is -50.3x at FY25 and is shown
    with a plain caveat (debt service is equity-funded until the FY2028 EBITDA-positive
    guidance) rather than suppressed. At HY dates scheduled principal isn't disclosed,
