@@ -59,9 +59,10 @@ def _allowed_numbers(metrics_context: str) -> set[str]:
         allowed.add(v)
         try:
             f = float(v)
-            for scaled in (f / 1000, f * 100, round(f, 1), round(f, 0)):
+            for scaled in (f / 1000, f / 1_000_000, f * 100, round(f, 1), round(f, 0)):
                 allowed.add(f"{scaled:g}")
                 allowed.add(f"{abs(scaled):.1f}")
+                allowed.add(f"{abs(scaled):.2f}")
         except ValueError:
             pass
     return allowed
