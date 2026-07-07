@@ -12,7 +12,8 @@ Equity Investors and Credit Providers.
 
 - **Repo:** https://github.com/ANIKET2703/senus-board-report
 - **Live demo:** https://senus-board-report-aniket.vercel.app
-- **Demo video:** _[YouTube link]_
+- **Demo video:** https://youtu.be/JeynALgTRCs
+- **One-page write-up:** [docs/ONE_PAGE_WRITEUP.md](docs/ONE_PAGE_WRITEUP.md)
 - Demo login: `ceo@senus.com` / `senus2030`
 
 ---

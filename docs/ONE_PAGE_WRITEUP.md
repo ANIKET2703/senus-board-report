@@ -2,7 +2,7 @@
 
 **Aniket Nimbalkar · Assiduous Technology Graduate Assessment**
 
-**Live demo:** https://senus-board-report-aniket.vercel.app · **Video:** _[YouTube]_ · **Repo:** https://github.com/ANIKET2703/senus-board-report · Login: `ceo@senus.com` / `senus2030`
+**Live demo:** https://senus-board-report-aniket.vercel.app · **Video:** https://youtu.be/JeynALgTRCs · **Repo:** https://github.com/ANIKET2703/senus-board-report · Login: `ceo@senus.com` / `senus2030`
 
 ## What I built
 
